@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Статьи — MineProG</title>
+<link rel="stylesheet" href="css/bootstrap.css"> <!--Подключаем CSS-->
+<script src="js/bootstrap.bundle.js" defer></script> <!--Подключаем JS-->
+</head>
+<body style="
+    background-image: url(images/BC-gradient.jpg);
+    background-position: center center;  
+    background-repeat: no-repeat;  
+    background-attachment: fixed;  
+    background-size: cover;  
+    ">
+
+<!--    <style>
+        @font-face {
+        font-family: 'Minecraft';
+        src: url('fonts/minecraft.ttf') format('ttf'), 
+        url('fonts/minecraft.ttf') format('ttf');
+    }
+
+    body {
+        font-family: 'Minecraft', Arial, sans-serif;
+    }
+    </style>
+-->
+
+<ul class="nav nav-pills justify-content-center" style="background: linear-gradient(rgb(0, 255, 234), blue); padding-top: 1%; padding-bottom: 1%;">
+    <a class="navbar-brand" href="index.html" target="_self">
+      <img src="images/logotype.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top"></a><span style="font-size: 250%;">MineProG</span>
+</ul>   
+
+<!--Навигационное Меню-->
+<ul class="nav nav-pills justify-content-center" style="background: linear-gradient(blue, rgb(0, 255, 234)); padding-top: 1%; padding-bottom: 1%;">
+  <li class="nav-item">
+    <a class="nav-link active" style="margin-left: 0.3em; margin-right: 0.3em" aria-current="page" href="articles.html">Статьи</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" style="margin-left: 0.3em; margin-right: 0.3em" aria-current="page" href="blocks.html">Блоки</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" style="margin-left: 0.3em; margin-right: 0.3em; color: white">Версии Minecraft</a>
+    <ul class="dropdown-menu" style="background-color: aqua;">
+      <li><a class="dropdown-item" style="color: blue;" href="1.0.html">Minecraft 1.0</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.1.html">Minecraft 1.1</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.2">Minecraft 1.2</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.3.html">Minecraft 1.3</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.4.html">Minecraft 1.4</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.5.html">Minecraft 1.5</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.6.html">Minecraft 1.6</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.7.html">Minecraft 1.7</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.8.html">Minecraft 1.8</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.9.html">Minecraft 1.9</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.10.html">Minecraft 1.10</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.11.html">Minecraft 1.11</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.12.html">Minecraft 1.12</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.13.html">Minecraft 1.13</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.14.html">Minecraft 1.14</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.15.html">Minecraft 1.15</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.16.html">Minecraft 1.16</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.17.html">Minecraft 1.17</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.18.html">Minecraft 1.18</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.19.html">Minecraft 1.19</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.20.html">Minecraft 1.20</a></li>
+      <li><a class="dropdown-item" style="color: blue;" href="1.21.html">Minecraft 1.21</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="construction.html" style="margin-left: 0.3em; margin-right: 0.3em; color: white;">Постройки</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" style="margin-left: 0.3em; margin-right: 0.3em" href="blog.html" tabindex="-1" aria-disabled="true">Блог</a>
+  </li>
+</ul>
+<!--Конец Навигационного Меню-->
+
+<nav aria-label="breadcrumb" style="background-color: aqua;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">MineProG</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Статьи</li>
+  </ol>
+</nav>
+
+
+
+<!--Разделы-->
+
+<!--Шаблон-->
+<!-- <div class="card text-center" style="background-color: black; width: 100%;">
+  <img src="..." class="card-img-top" alt="..." style="color: gray;">
+  <div class="card-body">
+    <h5 class="card-title" style="color: white;">Заголовок</h5>
+    <p class="card-text" style="color: aquamarine;">Описание</p>
+    <a href="#" class="btn btn-primary" style="color: black;">Текст кнопки</a>
+  </div>
+</div>
+</div> -->
+
+<div class="card text-center" style="background-color: black; width: 100%;">
+  <img src="..." class="card-img-top" alt="..." style="color: gray;">
+  <div class="card-body">
+    <h5 class="card-title" style="color: white;">Как построить Redstone Fly Machine</h5>
+    <p class="card-text" style="color: aquamarine;">Прочитав эту статью, вы сможете построить транспорт для передвежения по миру из редстоуна</p>
+    <a href="#" class="btn btn-primary" style="color: black;">Перейти к статье</a>
+  </div>
+</div>
+
+<!--Конец разделов-->
+
+<button type="button" class="btn btn-primary" id="liveToastBtn">Показать лайв тосты</button>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 мин назад</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+    </div>
+    <div class="toast-body">
+      Привет, мир! Это тост-сообщение.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
