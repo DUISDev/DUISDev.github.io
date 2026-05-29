@@ -1,0 +1,108 @@
+/* Дополнительные стили страниц документации */
+
+.doc-tree,
+.doc-table {
+  width: 100%;
+  margin: 0 0 0.85rem;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.doc-tree th,
+.doc-tree td,
+.doc-table th,
+.doc-table td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border: 2px solid rgba(30, 107, 255, 0.18);
+  vertical-align: top;
+}
+
+.doc-tree th,
+.doc-table th {
+  background: rgba(30, 107, 255, 0.08);
+  color: var(--brand-deep);
+  font-weight: 700;
+}
+
+.doc-tree code,
+.doc-table code {
+  white-space: nowrap;
+}
+
+.doc-path {
+  display: block;
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.85rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  color: var(--brand-deep);
+  background: rgba(30, 107, 255, 0.08);
+  border: 2px solid rgba(30, 107, 255, 0.18);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.doc-demo {
+  margin: 0.85rem 0 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 2px solid rgba(30, 107, 255, 0.18);
+  border-radius: 14px;
+}
+
+.doc-demo__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.doc-demo__frame {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.doc-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.65rem;
+  margin: 0.75rem 0 0;
+}
+
+.doc-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  margin: 0 0.35rem 0.35rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--brand-deep);
+  background: rgba(0, 255, 234, 0.12);
+  border: 2px solid rgba(0, 255, 234, 0.35);
+  border-radius: 999px;
+}
+
+.article-content__body ul.doc-list {
+  margin: 0 0 0.75rem;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.article-content__body ul.doc-list li {
+  margin: 0.35rem 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.article-content__body h3 {
+  margin: 0.85rem 0 0.45rem;
+  font-size: 1.05rem;
+  color: var(--brand-deep);
+}

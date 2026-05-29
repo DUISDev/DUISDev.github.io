@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru" data-site-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../dependencies/X-Coin.ico">
+  <title>Статьи — DUISDev</title>
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/page_home.css">
+  <link rel="stylesheet" href="../css/articles-page.css">
+</head>
+<body class="page-home page-articles">
+
+  <header class="site-header">
+    <div data-duisdev-module="logo"></div>
+    <div data-duisdev-module="menu"></div>
+  </header>
+
+  <main class="articles-main">
+    <header class="articles-page__header">
+      <h1>Статьи</h1>
+      <p>Гайды, инструкции и полезные материалы DUISDev.</p>
+    </header>
+
+    <nav class="articles-categories" id="articles-categories" role="tablist" aria-label="Категории статей"></nav>
+
+    <div class="articles-stage">
+      <p class="articles-hint" id="articles-hint">Выберите категорию</p>
+
+      <section class="articles-list-screen" id="articles-list-screen" hidden>
+        <h2 class="articles-list-screen__title" id="articles-list-title"></h2>
+        <ul class="articles-list" id="articles-list" role="listbox" aria-label="Статьи категории"></ul>
+      </section>
+
+      <section class="articles-reader" id="articles-reader" hidden>
+        <button type="button" class="articles-back" id="articles-back">← К списку статей</button>
+        <iframe id="articles-frame" class="article-frame" title="Статья"></iframe>
+      </section>
+    </div>
+  </main>
+
+  <footer id="footer" data-duisdev-module="footer"></footer>
+
+  <script src="../js/include-modules.js" defer></script>
+  <script src="../js/article.js" defer></script>
+  <script src="../js/articles-page.js" defer></script>
+</body>
+</html>

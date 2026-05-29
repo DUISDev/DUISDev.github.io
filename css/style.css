@@ -1,0 +1,9 @@
+/* Авто-подстройка размеров iframe */
+iframe,
+object {
+    position: static;
+    width: 100%;
+    border: none;
+    display: block;
+    /* высота задается через JS */
+}

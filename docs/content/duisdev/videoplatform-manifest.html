@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>manifest.json — видеоплатформа</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>manifest.json</h1>
+      <p>Каталог видеоплатформы: каналы, плейлисты и ролики.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Авторы (каналы)</h2>
+        <pre><code>{
+  "name": "DUISDev",
+  "handle": "@duisdev",
+  "avatarColor": "#0055ff",
+  "avatarUrl": "avatars/duisdev.png",
+  "description": "Описание канала"
+}</code></pre>
+        <p>Id создаётся из handle. Фото — необязательное поле <code>avatarUrl</code>.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Плейлисты</h2>
+        <pre><code>{
+  "title": "С чего начать",
+  "description": "Описание",
+  "author": "@duisdev",
+  "coverUrl": "covers/start.jpg",
+  "videos": ["Чёрный экран"]
+}</code></pre>
+        <p>Без обложки — градиент без текста. Количество видео показывается в подписи карточки.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Видео</h2>
+        <pre><code>{
+  "title": "Чёрный экран",
+  "author": "@duisdev",
+  "playlists": ["С чего начать"],
+  "source": { "type": "file", "url": "videos/example.mp4" }
+}</code></pre>
+        <p>Тип <code>embed</code> — для внешнего iframe. Id ролика генерируется из названия.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Страница канала</h2>
+        <p>Вкладка «Все» — только видео автора. «Плейлисты» — только карточки плейлистов. Ссылки: <code>index.html?author=duisdev</code>, <code>?playlist=...</code>.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

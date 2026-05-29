@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+    border: 2px;
+}
+
+
+
+td {
+     border: 5px solid #000000;
+     border-radius: 10px; }
+
+
+
+td {
+    border: 5px solid #000000;
+    border-radius: 10px;
+    padding: 10px; }
+
+
+
+tr {
+    border: 5px solid #000000;
+    border-radius: 10px; }
+
+
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: aqua; }

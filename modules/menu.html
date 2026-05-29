@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru" class="menu-module-preview-root">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модуль меню — DUISDev</title>
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/menu.css">
+</head>
+<body class="menu-module-preview">
+  <div class="menu-module-preview__shell">
+    <p class="menu-module-preview__label">modules/menu.html — предпросмотр модуля навигации</p>
+    <header class="site-header">
+<!-- duisdev-module:start -->
+      <nav class="site-header__nav" aria-label="Основная навигация">
+
+        <!-- ── Главная страница ── -->
+        <a class="site-header__link" href="{{ROOT}}#hero">Главная</a>
+        <a class="site-header__link" href="{{ROOT}}#features">Разделы</a>
+        <a class="site-header__link" href="{{ROOT}}#team">Команда</a>
+
+        <!-- ── Проекты DUISDev ── -->
+        <details class="site-header__dropdown">
+          <summary class="site-header__link">Проекты</summary>
+          <div class="site-header__submenu" role="group" aria-label="Проекты DUISDev">
+            <a class="site-header__sublink" href="{{ROOT}}videoplatform/index.html">
+              <span class="site-header__sublink-title">Видеоплатформа</span>
+              <span class="site-header__sublink-desc">Уроки, обзоры и стримы</span>
+            </a>
+            <a class="site-header__sublink" href="{{ROOT}}docs/index.html">
+              <span class="site-header__sublink-title">Документация</span>
+              <span class="site-header__sublink-desc">Инструкции и справочники</span>
+            </a>
+            <a class="site-header__sublink" href="{{ROOT}}dependencies/PageBuilder/index.html">
+              <span class="site-header__sublink-title">Page Builder</span>
+              <span class="site-header__sublink-desc">Фреймворк для вёрстки</span>
+            </a>
+            <a class="site-header__sublink" href="{{ROOT}}articles/index.html">
+              <span class="site-header__sublink-title">Статьи</span>
+              <span class="site-header__sublink-desc">Гайды и полезные материалы</span>
+            </a>
+          </div>
+        </details>
+
+        <!-- ── О проекте ── -->
+        <a class="site-header__link" href="#">Помочь проекту</a>
+        <a class="site-header__link" href="{{ROOT}}blog/index.html">Блог</a>
+        <a class="site-header__link" href="{{ROOT}}#footer">О нас</a>
+
+      </nav>
+<!-- duisdev-module:end -->
+    </header>
+  </div>
+  <script>
+    (function () {
+      var root = '../';
+      document.querySelectorAll('.menu-module-preview [href]').forEach(function (link) {
+        var href = link.getAttribute('href');
+        if (href && href.indexOf('{{ROOT}}') !== -1) {
+          link.setAttribute('href', href.split('{{ROOT}}').join(root));
+        }
+      });
+    }());
+  </script>
+</body>
+</html>

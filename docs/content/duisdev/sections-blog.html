@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Блог</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Блог</h1>
+      <p>Посты, документы, админка и сборка индекса.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Структура</h2>
+        <code class="doc-path">blog/</code>
+        <ul class="doc-list">
+          <li><code>index.html</code>, <code>posts/postN.html</code> — генерируются сборщиком, не править вручную</li>
+          <li><code>admin/index.html</code> — админка и предпросмотр</li>
+          <li><code>build-index.java</code> — сборка каталога постов</li>
+          <li><code>posts/</code> — исходники постов и вложения</li>
+        </ul>
+      </div>
+      <div class="article-entry">
+        <h2>Как добавить пост</h2>
+        <p>Создайте HTML в <code>blog/posts/</code>, затем запустите <code>javac build-index.java &amp;&amp; java build-index</code> в папке <code>blog/</code>.</p>
+        <p class="article-content__note">Для документов в посте используйте класс <code>post-document</code> и ссылку на файл в <code>posts/assets/</code>.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+/* Заголовок и текст поста внутри iframe (админка и главная блога) */
+
+:root {
+  --brand-cyan: #00ffea;
+  --brand-blue: #0055ff;
+  --brand-deep: #1a2a6c;
+  --brand-accent: #1e6bff;
+  --text-primary: #0f1b3d;
+  --text-muted: #4a5878;
+}
+
+html {
+  font-size: 118%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.blog-post-iframe-content {
+  padding: 0.25rem 0 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.blog-post-iframe-content .post-title {
+  margin: 0 0 0.85rem;
+  color: var(--brand-deep);
+  text-align: center;
+}
+
+.blog-post-iframe-content .post-title > :first-child {
+  margin-top: 0;
+}
+
+.blog-post-iframe-content .post-title > :last-child {
+  margin-bottom: 0;
+}
+
+.blog-post-iframe-content .post-title h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+  line-height: 1.3;
+}
+
+.blog-post-iframe-content .post-title h2 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  line-height: 1.3;
+}
+
+.blog-post-iframe-content .post-title h3,
+.blog-post-iframe-content .post-title h4,
+.blog-post-iframe-content .post-title h5,
+.blog-post-iframe-content .post-title h6 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.blog-post-iframe-content .post-title p {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+}
+
+.blog-post-iframe-content .post-body {
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.blog-post-iframe-content .post-body > :first-child {
+  margin-top: 0;
+}
+
+.blog-post-iframe-content .post-body > :last-child {
+  margin-bottom: 0;
+}
+
+.blog-post-iframe-content .post-body p,
+.blog-post-iframe-content .post-body blockquote,
+.blog-post-iframe-content .post-body pre,
+.blog-post-iframe-content .post-body table,
+.blog-post-iframe-content .post-body hr,
+.blog-post-iframe-content .post-body ul,
+.blog-post-iframe-content .post-body ol {
+  margin: 0 0 0.85rem;
+}
+
+.blog-post-iframe-content .post-body h1,
+.blog-post-iframe-content .post-body h2,
+.blog-post-iframe-content .post-body h3,
+.blog-post-iframe-content .post-body h4,
+.blog-post-iframe-content .post-body h5,
+.blog-post-iframe-content .post-body h6 {
+  margin: 0.65rem 0 0.75rem;
+  color: var(--brand-deep);
+  line-height: 1.35;
+}
+
+.blog-post-iframe-content .post-body h1 { font-size: 1.45rem; }
+.blog-post-iframe-content .post-body h2 { font-size: 1.3rem; }
+.blog-post-iframe-content .post-body h3 { font-size: 1.15rem; }
+.blog-post-iframe-content .post-body h4,
+.blog-post-iframe-content .post-body h5,
+.blog-post-iframe-content .post-body h6 { font-size: 1.05rem; }
+
+.blog-post-iframe-content .post-body a {
+  color: var(--brand-accent);
+  font-weight: 600;
+}
+
+.blog-post-iframe-content .post-body code {
+  padding: 0.15rem 0.45rem;
+  font-family: Consolas, monospace;
+  font-size: 0.95em;
+  background: rgba(30, 107, 255, 0.1);
+  border-radius: 4px;
+}
+
+.blog-post-iframe-content .post-body pre {
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  text-align: left;
+  background: rgba(30, 30, 40, 0.92);
+  border-radius: 10px;
+}
+
+.blog-post-iframe-content .post-body pre code {
+  padding: 0;
+  color: #e8e8e8;
+  background: transparent;
+  font-size: 0.95rem;
+}
+
+.blog-post-iframe-content .post-body blockquote {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.35rem 0 0.35rem 1rem;
+  text-align: left;
+  border-left: 4px solid rgba(30, 107, 255, 0.35);
+  font-style: italic;
+}
+
+.blog-post-iframe-content .post-body hr {
+  border: none;
+  border-top: 2px solid rgba(30, 107, 255, 0.2);
+}
+
+.blog-post-iframe-content .post-body ul,
+.blog-post-iframe-content .post-body ol {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.35rem;
+  text-align: left;
+}
+
+.blog-post-iframe-content .post-body ul.center-list,
+.blog-post-iframe-content .post-body ol.center-list,
+.blog-post-iframe-content .post-title ul.center-list,
+.blog-post-iframe-content .post-title ol.center-list {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.blog-post-iframe-content .post-body table {
+  display: inline-table;
+  width: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+.blog-post-iframe-content .post-body td {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(30, 107, 255, 0.25);
+}
+
+.blog-post-iframe-content .post-date {
+  margin: 0.25rem 0 0;
+  color: var(--brand-blue);
+  font-size: 1rem;
+  font-weight: 600;
+}

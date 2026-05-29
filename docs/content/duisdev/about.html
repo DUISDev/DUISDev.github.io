@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О проекте</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>DUISDev</h1>
+      <p>Официальный сайт команды: Open Source проекты, контент и инструменты для веб-разработки.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Что это</h2>
+        <p>DUISDev — статический сайт на HTML/CSS/JS без серверного бэкенда. Разделы (блог, статьи, видео, документация) подключают общие модули шапки и меню из папки <code>modules/</code>.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Как устроена документация</h2>
+        <p>Вы читаете раздел <strong>DUISDev</strong> — навигация для разработчиков по всему проекту, включая видеоплатформу. Отдельная документация <strong>Page Builder</strong> описывает CSS-фреймворк в <code>dependencies/PageBuilder/</code>.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Главные точки входа</h2>
+        <ul class="doc-list">
+          <li><code>index.html</code> — главная страница</li>
+          <li><code>modules/menu.html</code> — меню сайта (редактируется один раз для всех страниц)</li>
+          <li><code>js/include-modules.js</code> — подгрузка модулей на страницах</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

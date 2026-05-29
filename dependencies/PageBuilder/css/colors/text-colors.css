@@ -1,0 +1,685 @@
+/* Шаблон */ /* 
+
+.fc-[color]"{
+    font-color: color;
+}
+
+ */
+
+ /* Все цвета были взяты с "https://colorscheme.ru/html-colors.html" */
+
+
+
+/* Основные цвета */
+
+.text-black{
+    color: black;
+}
+
+.text-silver{
+    color: silver;
+}
+
+.text-white{
+    color: white;
+}
+
+.text-fuchsia{
+    color: fuchsia;
+}
+
+.text-purple{
+    color: purple;
+}
+
+.text-red{
+    color: red;
+}
+
+.text-maroon{
+    color: maroon;
+}
+
+.text-yellow{
+    color: yellow;
+}
+
+.text-olive{
+    color: olive;
+}
+
+.text-lime{
+    color: lime;
+}
+
+.text-green{
+    color: green;
+}
+
+.text-aqua{
+    color: aqua;
+}
+
+.text-teal{
+    color: teal;
+}
+
+.text-blue{
+    color: blue;
+}
+
+.text-navy{
+    color: navy;
+}
+
+
+
+/* Красные тона */
+
+.text-indianred{
+    color: indianred;
+}
+
+.text-lightcoral{
+    color: lightcoral;
+}
+
+.text-salmon{
+    color: salmon;
+}
+
+.text-darksalmon{
+    color: darksalmon;
+}
+
+.text-lightsalmon{
+    color: lightsalmon;
+}
+
+.text-crimson{
+    color: crimson;
+}
+
+.text-firebrick{
+    color: firebrick;
+}
+
+.text-darkred{
+    color: darkred;
+}
+
+
+
+/* Розовые тона */
+
+.text-pink{
+    color: pink;
+}
+
+.text-lightpink{
+    color: lightpink;
+}
+
+.text-hotpink{
+    color: hotpink;
+}
+
+.text-deeppink{
+    color: deeppink;
+}
+
+.text-mediumvioletred{
+    color: mediumvioletred;
+}
+
+.text-palevioletred{
+    color: palevioletred;
+}
+
+/* Оранжевые тона */
+
+.text-coral{
+    color: coral;
+}
+
+.text-tomato{
+    color: tomato;
+}
+
+.text-orangered{
+    color: orangered;
+}
+
+.text-darkorange{
+    color: darkorange;
+}
+
+.text-orange{
+    color: orange;
+}
+
+
+
+/* Жёлтые тона */
+
+.text-gold{
+    color: gold;
+}
+
+.text-yellow{
+    color: yellow;
+}
+
+.text-lightyellow{
+    color: lightyellow;
+}
+
+.text-lemonchiffon{
+    color: lemonchiffon;
+}
+
+.text-lightgoldenrodyellow{
+    color: lightgoldenrodyellow;
+}
+
+.text-papayawhip{
+    color: papayawhip;
+}
+
+.text-moccasin{
+    color: moccasin;
+}
+
+.text-peachpuff{
+    color: peachpuff;
+}
+
+.text-palegoldenrod{
+    color: palegoldenrod;
+}
+
+.text-khaki{
+    color: khaki;
+}
+
+.text-darkkhaki{
+    color: darkkhaki;
+}
+
+
+
+/* Фиолетные тона */
+
+.text-lavender{
+    color: lavender;
+}
+
+.text-thistle{
+    color: thistle;
+}
+
+.text-plum{
+    color: plum;
+}
+
+.text-violet{
+    color: violet;
+}
+
+.text-orchid{
+    color: orchid;
+}
+
+.text-fuchsia{
+    color: fuchsia;
+}
+
+.text-magenta{
+    color: magenta;
+}
+
+.text-mediumorchid{
+    color: mediumorchid;
+}
+
+.text-mediumpurple{
+    color: mediumpurple;
+}
+
+.text-blueviolet{
+    color: blueviolet;
+}
+
+.text-darkviolet{
+    color: darkviolet;
+}
+
+.text-darkorchid{
+    color: darkorchid;
+}
+
+.text-darkmagenta{
+    color: darkmagenta;
+}
+
+.text-purple{
+    color: purple;
+}
+
+.text-indigo{
+    color: indigo;
+}
+
+.text-slateblue{
+    color: slateblue;
+}
+
+.text-darkslateblue{
+    color: darkslateblue;
+}
+
+/* Коричневые тона */
+
+.text-cornsilk{
+    color: cornsilk;
+}
+
+.text-blanchedalmond{
+    color: blanchedalmond;
+}
+
+.text-bisque{
+    color: bisque;
+}
+
+.text-navajowhite{
+    color: navajowhite;
+}
+
+.text-wheat{
+    color: wheat;
+}
+
+.text-burlywood{
+    color: burlywood;
+}
+
+.text-tan{
+    color: tan;
+}
+
+.text-rosybrown{
+    color: rosybrown;
+}
+
+.text-sandybrown{
+    color: sandybrown;
+}
+
+.text-goldenrod{
+    color: goldenrod;
+}
+
+.text-darkgoldenrod{
+    color: darkgoldenrod;
+}
+
+.text-peru{
+    color: peru;
+}
+
+.text-chocolate{
+    color: chocolate;
+}
+
+.text-saddlebrown{
+    color: saddlebrown;
+}
+
+.text-sienna{
+    color: sienna;
+}
+
+.text-brown{
+    color: brown;
+}
+
+.text-maroon{
+    color: maroon;
+}
+
+/* Зелёные тона */
+
+.text-greenyellow{
+    color: greenyellow;
+}
+
+.text-chartreuse{
+    color: chartreuse;
+}
+
+.text-lawngreen{
+    color: lawngreen;
+}
+
+.text-lime{
+    color: lime;
+}
+
+.text-limegreengreen{
+    color: limegreen;
+}
+
+.text-palegreen{
+    color: palegreen;
+}
+
+.text-lightgreen{
+    color: lightgreen;
+}
+
+.text-mediumspringgreen{
+    color: mediumspringgreen;
+}
+
+.text-springgreen{
+    color: springgreen;
+}
+
+.text-mediumseagreen{
+    color: mediumseagreen;
+}
+
+.text-seagreen{
+    color: seagreen;
+}
+
+.text-forestgreen{
+    color: forestgreen;
+}
+
+.text-green{
+    color: green;
+}
+
+.text-darkgreen{
+    color: darkgreen;
+}
+
+.text-yellowgreen{
+    color: yellowgreen;
+}
+
+.text-olivedrab{
+    color: olivedrab;
+}
+
+.text-olive{
+    color: olive;
+}
+
+.text-darkolivegreen{
+    color: darkolivegreen;
+}
+
+.text-mediumaquamarine{
+    color: mediumaquamarine;
+}
+
+.text-darkseagreen{
+    color: darkseagreen;
+}
+
+.text-lightseagreen{
+    color: lightseagreen;
+}
+
+.text-darkcyan{
+    color: darkcyan;
+}
+
+.text-teal{
+    color: teal;
+}
+
+/* Синие тона */
+
+.text-aqua{
+    color: aqua;
+}
+
+.text-cyan{
+    color: cyan;
+}
+
+.text-lightcyan{
+    color: lightcyan;
+}
+
+.text-paleturquoise{
+    color: paleturquoise;
+}
+
+.text-aquamarine{
+    color: aquamarine;
+}
+
+.text-turquoise{
+    color: turquoise;
+}
+
+.text-mediumturquoise{
+    color: mediumturquoise;
+}
+
+.text-darkturquoise{
+    color: darkturquoise;
+}
+
+.text-cadetblue{
+    color: cadetblue;
+}
+
+.text-steelblue{
+    color: steelblue;
+}
+
+.text-lightsteelblue{
+    color: lightsteelblue;
+}
+
+.text-powderblue{
+    color: powderblue;
+}
+
+.text-lightblue{
+    color: lightskyblue;
+}
+
+.text-skyblue{
+    color: skyblue;
+}
+
+.text-lightskyblue{
+    color: lightskyblue;
+}
+
+.text-deepskyblue{
+    color: deepskyblue;
+}
+
+.text-dodgerblue{
+    color: dodgerblue;
+}
+
+.text-cornflowerblue{
+    color: cornflowerblue;
+}
+
+.text-mediumstateblue{
+    color: mediumslateblue;
+}
+
+.text-royalblue{
+    color: royalblue;
+}
+
+.text-blue{
+    color: blue;
+}
+
+.text-mediumblue{
+    color: mediumblue;
+}
+
+.text-darkblue{
+    color: darkblue;
+}
+
+.text-navy{
+    color: navy;
+}
+
+.text-midnightblue{
+    color: midnightblue;
+}
+
+/* Белые тона */
+
+.text-white{
+    color: white;
+}
+
+.text-snow{
+    color: snow;
+}
+
+.text-honeydew{
+    color: honeydew;
+}
+
+.text-mintcream{
+    color: mintcream;
+}
+
+.text-azure{
+    color: azure;
+}
+
+.text-aliceblue{
+    color: aliceblue;
+}
+
+.text-ghostwhite{
+    color: ghostwhite;
+}
+
+.text-whitesmoke{
+    color: whitesmoke;
+}
+
+.text-seashell{
+    color: seashell;
+}
+
+.text-beige{
+    color: beige;
+}
+
+.text-oldlace{
+    color: oldlace;
+}
+
+.text-floralwhite{
+    color: floralwhite;
+}
+
+.text-ivory{
+    color: ivory;
+}
+
+.text-antiquewhite{
+    color: antiquewhite;
+}
+
+.text-linen{
+    color: linen;
+}
+
+.text-lavenderblush{
+    color: lavenderblush;
+}
+
+.text-mistyrose{
+    color: mistyrose;
+}
+
+/* Серые тона */
+
+.text-gainsboro{
+    color: gainsboro;
+}
+
+.text-lightgrey{
+    color: lightgrey;
+}
+
+.text-lightgray{
+    color: lightgray;
+}
+
+.text-silver{
+    color: silver;
+}
+
+.text-darkgrey{
+    color: darkgrey;
+}
+
+.text-darkgray{
+    color: darkgray;
+}
+
+.text-gray{
+    color: gray;
+}
+
+.text-grey{
+    color: grey;
+}
+
+.text-dimgray{
+    color: dimgray;
+}
+
+.text-dimgrey{
+    color: dimgrey;
+}
+
+.text-lightslategray{
+    color: lightslategray;
+}
+
+.text-lightslategrey{
+    color: lightslategrey;
+}
+
+.text-slategray{
+    color: slategray;
+}
+
+.text-slategrey{
+    color: slategrey;
+}
+
+.text-darkslategray{
+    color: darkslategray;
+}
+
+.text-darkslategrey{
+    color: darkslategrey;
+}
+
+.text-black{
+    color: black;
+}

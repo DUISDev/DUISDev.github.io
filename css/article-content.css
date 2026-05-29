@@ -1,0 +1,129 @@
+/* Содержимое статьи внутри iframe (articles/content) */
+
+:root {
+  --brand-deep: #1a2a6c;
+  --brand-accent: #1e6bff;
+  --surface: rgba(255, 255, 255, 0.92);
+  --text-primary: #0f1b3d;
+  --text-muted: #4a5878;
+  --pb-border: 4px solid var(--brand-accent);
+  --pb-glow: 0 0 0 2px rgba(30, 107, 255, 0.45);
+}
+
+html {
+  font-size: 118%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.article-content {
+  width: min(100%, 52rem);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+.article-content__header {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: var(--pb-border);
+  border-radius: 16px;
+  box-shadow: var(--pb-glow);
+}
+
+.article-content__header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  color: var(--brand-deep);
+}
+
+.article-content__header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.article-content__body h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--brand-deep);
+}
+
+.article-content__body p {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.article-content__body p:last-child {
+  margin-bottom: 0;
+}
+
+.article-content__body code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: rgba(30, 107, 255, 0.1);
+  color: var(--brand-deep);
+  font-size: 0.92em;
+}
+
+.article-content__body pre {
+  margin: 0 0 0.75rem;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  border-radius: 10px;
+  background: rgba(15, 27, 61, 0.92);
+  color: #e8eef8;
+}
+
+.article-content__body pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+.article-content__note {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid rgba(0, 180, 216, 0.55);
+  border-radius: 0 10px 10px 0;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.article-entry {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(30, 107, 255, 0.15);
+}
+
+.article-entry:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.article-entry__desc {
+  margin: 0.35rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}

@@ -1,0 +1,233 @@
+/*Тут будут темы оформления*/
+.dark-theme {
+    background-color: #282c34;
+    color: white;
+}
+.light-theme {
+    background-color: white;
+    color: black;
+}
+.red-theme {
+    background-color: #ff4242;
+    color: white;
+}
+.blue-theme {
+    background-color: #0055ff;
+    color: white;
+}
+.yellow-theme {
+    background-color: #ffff21;
+    color: black;
+}
+.lemon-theme {
+    background-color: #ffff50;
+    color: black;
+}
+.white-blue-theme {
+    background-color: #55ffff;
+    color: black;
+}
+.white-blue-theme2 {
+    background-color: #55ffff;
+    color: white;
+}
+.vs-code-dark-theme {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+.vs-code-light-theme {
+    background-color: #ffffff;
+    color: #1e1e1e;
+}
+.solarized-dark-theme {
+    background-color: #002b36;
+    color: #839496;
+}
+.solarized-light-theme {
+    background-color: #fdf6e3;
+    color: #657b83;
+}
+.monokai-theme {
+    background-color: #272822;
+    color: #f8f8f2;
+}
+.dracula-theme {
+    background-color: #282a36;
+    color: #f8f8f2;
+}
+.nord-theme {
+    background-color: #2e3440;
+    color: #d8dee9;
+}
+.one-dark-theme {
+    background-color: #282c34;
+    color: #abb2bf;
+}
+.one-light-theme {
+    background-color: #fafafa;
+    color: #383a42;
+}
+.github-dark-theme {
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+.github-light-theme {
+    background-color: #ffffff;
+    color: #24292f;
+}
+.material-dark-theme {
+    background-color: #263238;
+    color: #eeffff;
+}
+.material-light-theme {
+    background-color: #fafafa;
+    color: #263238;
+}
+.gruvbox-dark-theme {
+    background-color: #282828;
+    color: #ebdbb2;
+}
+.gruvbox-light-theme {
+    background-color: #fbf1c7;
+    color: #3c3836;
+}
+.oceanic-next-theme {
+    background-color: #1b2b34;
+    color: #d8dee9;
+}
+.palenight-theme {
+    background-color: #292d3e;
+    color: #bfc7d5;
+}
+.tomorrow-night-theme {
+    background-color: #1d1f21;
+    color: #c5c8c6;
+}
+.ayu-dark-theme {
+    background-color: #0a0e14;
+    color: #b3b1ad;
+}
+.ayu-light-theme {
+    background-color: #faf8f5;
+    color: #5c6773;
+}
+.gray-theme {
+    background-color: #808080;
+    color: #ffffff;
+}
+.charcoal-theme {
+    background-color: #36454f;
+    color: #f0f0f0;
+}
+.cream-theme {
+    background-color: #fffdd0;
+    color: #4a3b2c;
+}
+.midnight-theme {
+    background-color: #191970;
+    color: #e0e0ff;
+}
+.forest-theme {
+    background-color: #228b22;
+    color: #f0fff0;
+}
+.coral-theme {
+    background-color: #ff7f50;
+    color: #2d2d2d;
+}
+.lavender-theme {
+    background-color: #e6e6fa;
+    color: #4a4a6a;
+}
+.mint-theme {
+    background-color: #98fb98;
+    color: #2e4a2e;
+}
+.peach-theme {
+    background-color: #ffdab9;
+    color: #7a3e1a;
+}
+.rose-theme {
+    background-color: #ffb6c1;
+    color: #8b3a4a;
+}
+.purple-theme {
+    background-color: #800080;
+    color: #f5e6f5;
+}
+.orange-theme {
+    background-color: #ff8c00;
+    color: #2b1a0e;
+}
+.cyan-theme {
+    background-color: #00ffff;
+    color: #003333;
+}
+.teal-theme {
+    background-color: #008080;
+    color: #e0ffff;
+}
+.magenta-theme {
+    background-color: #ff00ff;
+    color: #2e002e;
+}
+.high-contrast-dark-theme {
+    background-color: #000000;
+    color: #ffff00;
+}
+.high-contrast-light-theme {
+    background-color: #ffffff;
+    color: #0000ff;
+}
+.sepia-theme {
+    background-color: #f4ecd8;
+    color: #5b4636;
+}
+.pastel-dark-theme {
+    background-color: #2d2d35;
+    color: #d9d9e3;
+}
+.pastel-light-theme {
+    background-color: #fdfbf7;
+    color: #6b6b7a;
+}
+.black-theme {
+    background-color: #000000;
+    color: #ffffff;
+}
+.silver-theme {
+    background-color: #c0c0c0;
+    color: #1a1a1a;
+}
+.gold-theme {
+    background-color: #b8860b;
+    color: #fff8dc;
+}
+.wine-theme {
+    background-color: #722f37;
+    color: #f5ddd6;
+}
+.sky-theme {
+    background-color: #87ceeb;
+    color: #1f3a3f;
+}
+.sand-theme {
+    background-color: #c2b280;
+    color: #2b2b1a;
+}
+.plum-theme {
+    background-color: #8e4585;
+    color: #f5e0f3;
+}
+.olive-theme {
+    background-color: #808000;
+    color: #ffffe0;
+}
+.cocoa-theme {
+    background-color: #6b3e1c;
+    color: #f0dfc9;
+}
+.midnight-blue-theme {
+    background-color: #191970;
+    color: #b0c4de;
+}

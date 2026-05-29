@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Видеоплатформа — обзор</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Видеоплатформа</h1>
+      <p>Раздел сайта DUISDev: каталог видео, каналы и плейлисты.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Где лежит</h2>
+        <code class="doc-path">videoplatform/</code>
+        <table class="doc-tree">
+          <thead><tr><th>Файл</th><th>Назначение</th></tr></thead>
+          <tbody>
+            <tr><td><code>index.html</code></td><td>Каталог: главная, плейлисты, авторы, страница канала</td></tr>
+            <tr><td><code>watch.html</code></td><td>Просмотр видео и блок «Далее»</td></tr>
+            <tr><td><code>manifest.json</code></td><td>Каналы, плейлисты, видео</td></tr>
+            <tr><td><code>videos/</code></td><td>Локальные MP4-файлы</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="article-entry">
+        <h2>Скрипты и стили</h2>
+        <ul class="doc-list">
+          <li><code>js/videos-data.js</code> — manifest, карточки, аватары</li>
+          <li><code>js/videos-page.js</code> — каталог и каналы</li>
+          <li><code>js/video-watch.js</code> — страница просмотра</li>
+          <li><code>css/videos-page.css</code> — оформление</li>
+        </ul>
+      </div>
+      <div class="article-entry">
+        <h2>Добавление видео</h2>
+        <p>1. Положите файл в <code>videoplatform/videos/</code>.<br>2. Добавьте запись в <code>manifest.json</code> (см. следующую страницу).<br>3. Откройте через локальный HTTP-сервер — <code>fetch</code> не работает с <code>file://</code>.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

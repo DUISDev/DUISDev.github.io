@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Документация</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Раздел «Документация»</h1>
+      <p>Каталог документаций и просмотр с оглавлением.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Файлы</h2>
+        <ul class="doc-list">
+          <li><code>docs/index.html</code> — карточки всех документаций</li>
+          <li><code>docs/read.html</code> — чтение с боковым оглавлением</li>
+          <li><code>docs/manifest.json</code> — список документаций и страниц</li>
+          <li><code>docs/content/</code> — HTML-страницы</li>
+          <li><code>js/docs-data.js</code>, <code>docs-hub.js</code>, <code>docs-reader.js</code></li>
+          <li><code>css/docs-page.css</code>, <code>css/docs-content.css</code></li>
+        </ul>
+      </div>
+      <div class="article-entry">
+        <h2>Как добавить страницу</h2>
+        <p>Создайте HTML в <code>docs/content/...</code> и добавьте в нужную документацию в manifest:</p>
+        <pre><code>{ "id": "new-page", "title": "Новая страница", "file": "duisdev/new-page.html" }</code></pre>
+        <p class="article-content__note">После правки <code>manifest.json</code> скопируйте его содержимое в <code>MANIFEST</code> внутри <code>js/docs-data.js</code>.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

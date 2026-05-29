@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "title": "Все",
+      "auto": true
+    },
+    {
+      "title": "Linux",
+      "articles": [
+        { "title": "LINUX", "file": "1.html" }
+      ]
+    },
+    {
+      "title": "Разработка",
+      "articles": [
+        { "title": "Markdown to HTML Converter", "file": "2.html" }
+      ]
+    }
+  ]
+}

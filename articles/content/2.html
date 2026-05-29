@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Markdown to HTML Converter</title><style>body{font-family:'Segoe UI',sans-serif;font-size:17px;line-height:1.7;color:#4e342e;background:#efebe9;margin:0 auto;max-width:1100px;padding:40px 50px;text-align:center}h1,h2,h3{color:#4e342e;margin-top:28px;margin-bottom:20px}h1{font-size:2.1em;border-bottom:2px solid #bcaaa4;padding-bottom:10px}h2{font-size:1.75em;border-bottom:1px solid #bcaaa4;padding-bottom:8px}h3{font-size:1.45em}p{margin-bottom:20px}a{color:#8d6e63;text-decoration:none}a:hover{text-decoration:underline}code{font-family:monospace;padding:3px 6px;font-size:15px;background:#d7ccc8;border-radius:4px;color:#4e342e}pre{background:#4e342e;border-radius:8px;padding:18px;overflow-x:auto;margin:20px 0}pre code{color:#efebe9;background:0 0;font-size:14px;padding:0}blockquote{padding:0 20px;color:#6a737d;border-left:4px solid #bcaaa4;font-style:italic;margin:20px 0}.center-list{display:inline-block;text-align:left;margin:0 auto 16px;list-style-position:inside}ul,ol{padding-left:0}li{text-align:center;margin:8px 0}table{border-collapse:collapse;width:100%;margin:20px auto}th,td{border:1px solid #bcaaa4;padding:10px 15px}th{background:#d7ccc8}.task{margin:10px 0;text-align:center}@media(max-width:768px){body{padding:20px;font-size:15px}}</style></head><body>
+<h1>Markdown to HTML Converter</h1>
+<p>Конвертер Markdown в HTML с графическим интерфейсом (Swing) и консольной версией.</p>
+<p>Поддерживает <strong>15 цветовых тем</strong>, <strong>три варианта выравнивания</strong> текста, таблицы, чек‑листы, блоки кода с тёмной/светлой подсветкой, эмодзи, HTML‑сущности и многое другое.</p>
+<h2>Требования</h2>
+<ul class='center-list'>
+<li><strong>Java 11</strong> или новее (рекомендуется Java 17/21 LTS)</li>
+</ul>
+<h2>Быстрый старт</h2>
+<ol class='center-list'>
+<li>Скачайте нужный вам <code>.java</code> файл:</li>
+</ol>
+<ul class='center-list'>
+<li><code>MarkdownToHTMLConverter.java</code> – GUI версия</li>
+<li><code>MarkdownToHTMLConverterCLI.java</code> – консольная версия</li>
+</ul>
+<ol class='center-list'>
+<li>Поместите файл в любую папку.</li>
+<li>Создайте подпапку <code>resources</code> и положите туда ваши <code>.md</code> файлы.</li>
+<li>Запустите программу:</li>
+</ol>
+<h3>GUI версия</h3>
+<pre><code>java MarkdownToHTMLConverter.java
+</code></pre>
+<h3>CLI версия</h3>
+<pre><code>java MarkdownToHTMLConverterCLI.java
+</code></pre>
+<p>Следуйте инструкциям в терминале: выберите язык, папку, имя файла, выравнивание, тему и т.д.</p>
+<p>Результат – в папке converted</p>
+<h3>Структура проекта</h3>
+<pre><code>MDToHtmlConverter/
+├── MarkdownToHTMLConverter.java        # GUI-версия
+├── MarkdownToHTMLConverterCLI.java     # CLI-версия
+├── resources/                          # исходные .md файлы (создаётся автоматически)
+│   └── example.md
+└── converted/                          # результат .html (создаётся автоматически)
+    └── example.html
+</code></pre>
+<h3>Возможности</h3>
+<ul class='center-list'>
+<li><strong>Заголовки:</strong> <em>h1-h6</em></li>
+<li><strong>Выделение текста:</strong> <em>жирный, курсив, зачёркнутый</em></li>
+<li><strong>Списки:</strong> <em>нумерованные, маркированные, вложенные</em></li>
+<li><strong>Чек-листы:</strong> <em>- [x] / - [ ]</em></li>
+<li><strong>Цитаты:</strong> <em>></em></li>
+<li><strong>Таблицы:</strong> <em>в Markdown-синтаксисе</em></li>
+<li><strong>Блоки кода:</strong> <em>с подсветкой (язык указывается после ```)</em></li>
+<li><strong>Инлайн‑код:</strong> <em><code>code</code></em></li>
+<li><strong>Ссылки:</strong> <em>в том числе внутренние #, относительные, email, автоссылки</em></li>
+<li><strong>Изображения:</strong> <em>alt, url</em></li>
+<li><strong>Горизонтальные линии:</strong> ---, ***</li>
+<li><strong>Эмодзи:</strong> 😊 → 😊</li>
+<li><strong>HTML‑сущности:</strong> <em>̄, © и др.</em></li>
+<li><strong>Прямой HTML внутри Markdown:</strong> <em>опционально</em></li>
+</ul>
+<h3>Настройки (GUI)</h3>
+<ul class='center-list'>
+<li><strong>Язык:</strong> <em>Русский / English (мгновенное переключение)</em></li>
+</ul>
+<ul class='center-list'>
+<li><strong>Выравнивание:</strong> <em>Левое, Центр, Правое</em></li>
+</ul>
+<ul class='center-list'>
+<li><strong>Темы:</strong> <em>15 цветовых схем (Светлая, Тёмная, Сепия, Лесная, Океан, Космос, Кофе, Мятная, Лаванда, Закат, Арктика, Пустыня, Вишня, Ночь, Рассвет)</em></li>
+</ul>
+<ul class='center-list'>
+<li><strong>Разрешить HTML‑теги и скрипты</strong> – <em>даёт возможность вставлять произвольный HTML/JS</em></li>
+</ul>
+<h3>Настройки (CLI)</h3>
+<p>Все параметры задаются через консольные вопросы:</p>
+<ul class='center-list'>
+<li>Язык</li>
+<li>Путь к папке с .md</li>
+<li>Имя файла без расширения</li>
+<li>Выравнивание</li>
+<li>Тема (1-15)</li>
+<li>Разрешение HTMl</li>
+</ul>
+<script src="../../js/article-content.js" defer></script></body></html>

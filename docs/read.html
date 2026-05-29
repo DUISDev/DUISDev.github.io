@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru" data-site-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../dependencies/X-Coin.ico">
+  <title>Документация — DUISDev</title>
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/page_home.css">
+  <link rel="stylesheet" href="../css/docs-page.css">
+</head>
+<body class="page-home page-docs">
+
+  <header class="site-header">
+    <div data-duisdev-module="logo"></div>
+    <div data-duisdev-module="menu"></div>
+  </header>
+
+  <main class="docs-reader-main">
+    <a class="docs-back-link" href="index.html"><span class="docs-back-link__icon" aria-hidden="true">←</span> К каталогу документации</a>
+
+    <div class="docs-reader-shell">
+      <aside class="docs-sidebar" aria-label="Оглавление документации">
+        <h2 class="docs-sidebar__title" id="docs-sidebar-title">Документация</h2>
+        <nav id="docs-sidebar-nav" aria-label="Разделы"></nav>
+      </aside>
+
+      <div class="docs-stage">
+        <p class="docs-empty" id="docs-empty" hidden>Загрузка…</p>
+        <iframe class="docs-frame article-frame" id="docs-frame" title="Страница документации" hidden></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" data-duisdev-module="footer"></footer>
+
+  <script src="../js/include-modules.js" defer></script>
+  <script src="../js/article.js" defer></script>
+  <script src="../js/docs-data.js" defer></script>
+  <script src="../js/docs-reader.js" defer></script>
+</body>
+</html>

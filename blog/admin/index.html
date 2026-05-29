@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru" data-site-root="../../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../dependencies/X-Coin.ico">
+  <title>Админ — Блог DUISDev</title>
+  <link rel="stylesheet" href="../../css/font.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/menu.css">
+  <link rel="stylesheet" href="../../css/page_home.css">
+  <link rel="stylesheet" href="../../css/blog-page.css">
+</head>
+<body class="page-home page-blog">
+
+  <header class="site-header">
+    <div data-duisdev-module="logo"></div>
+    <div data-duisdev-module="menu"></div>
+  </header>
+
+  <main class="blog-admin-main">
+    <header class="blog-page__header">
+      <h1>Панель управления</h1>
+      <p>Создание новых записей для блога DUISDev.</p>
+      <a class="blog-admin-link" href="../index.html">← К блогу</a>
+    </header>
+
+    <section class="blog-admin-panel">
+      <h2>Добавить новый пост</h2>
+      <form id="postForm">
+        <div class="blog-form-group">
+          <label for="postTitle">Заголовок <span class="blog-md-hint">(полный Markdown и HTML)</span></label>
+          <textarea id="postTitle" rows="3" placeholder="# Заголовок&#10;**жирный** или свой &lt;div&gt;…" required></textarea>
+        </div>
+
+        <div class="blog-form-group">
+          <label for="postImageName">Файл в assets (с расширением)</label>
+          <input type="text" id="postImageName" placeholder="Например: preview.png">
+        </div>
+
+        <div class="blog-form-group">
+          <label for="postContent">Описание <span class="blog-md-hint">(полный Markdown)</span></label>
+          <textarea id="postContent" rows="14" placeholder="# Заголовок&#10;Текст с **жирным**, списками, ```кодом```, таблицами | A | B |…" required></textarea>
+        </div>
+
+        <div class="blog-form-group blog-form-group--inline">
+          <label class="blog-form-checkbox">
+            <input type="checkbox" id="allowHtml" checked>
+            Разрешить HTML в Markdown
+          </label>
+        </div>
+
+        <section class="blog-md-preview" id="mdPreview" hidden>
+          <h3 class="blog-md-preview__title">Предпросмотр поста</h3>
+          <article class="post-preview blog-md-preview__card">
+            <div class="blog-md-preview__media" id="mdPreviewMedia"></div>
+            <iframe id="mdPreviewFrame" class="blog-post-text-frame" name="mdPreviewFrame" title="Заголовок и текст поста" scrolling="no"></iframe>
+          </article>
+        </section>
+
+        <div class="blog-form-group">
+          <label for="postDate">Дата</label>
+          <input type="date" id="postDate" required>
+        </div>
+
+        <details class="blog-md-help">
+          <summary>Синтаксис Markdown (как в MarkdownToHTMLConverter)</summary>
+          <ul>
+            <li>Заголовки: <code># … ######</code></li>
+            <li>Выделение: <code>**жирный**</code>, <code>*курсив*</code>, <code>~~зачёркнутый~~</code>, <code>`код`</code></li>
+            <li>Списки: <code>- пункт</code>, <code>1. пункт</code></li>
+            <li>Цитата: <code>&gt; текст</code>, линия: <code>---</code></li>
+            <li>Код: блок <code>``` … ```</code></li>
+            <li>Таблица: <code>| A | B |</code></li>
+            <li>Ссылка: <code>[текст](url)</code>, <code>&lt;https://…&gt;</code>, <code>&lt;email@site.ru&gt;</code></li>
+            <li>Эмодзи: <code>:smile:</code>, <code>:heart:</code>, <code>:rocket:</code>…</li>
+            <li>Сущности: <code>&amp;copy;</code>, <code>&amp;mdash;</code>…</li>
+          </ul>
+        </details>
+
+        <div class="blog-form-actions">
+          <button type="submit">Создать пост</button>
+        </div>
+      </form>
+
+      <div id="message"></div>
+    </section>
+  </main>
+
+  <footer id="footer" data-duisdev-module="footer"></footer>
+
+  <script src="../../js/include-modules.js" defer></script>
+  <script src="../js/markdown.js"></script>
+  <script src="../js/post-iframe-resize.js"></script>
+  <script>
+        const postForm = document.getElementById('postForm');
+        const messageDiv = document.getElementById('message');
+        const allowHtmlCheckbox = document.getElementById('allowHtml');
+        const mdPreview = document.getElementById('mdPreview');
+        const mdPreviewMedia = document.getElementById('mdPreviewMedia');
+        const mdPreviewFrame = document.getElementById('mdPreviewFrame');
+        const previewFields = ['postTitle', 'postContent', 'postImageName', 'postDate'];
+
+        const IFRAME_PATHS = {
+            admin: {
+                font: '../../css/font.css',
+                iframe: '../css/post-iframe-content.css',
+                html: '../css/post-html-content.css',
+                script: '../js/post-iframe-content.js'
+            },
+            post: {
+                font: '../../css/font.css',
+                iframe: '../css/post-iframe-content.css',
+                html: '../css/post-html-content.css',
+                script: '../js/post-iframe-content.js'
+            }
+        };
+
+        document.getElementById('postDate').valueAsDate = new Date();
+
+        function allowHtml() {
+            return allowHtmlCheckbox.checked;
+        }
+
+        function schedulePreviewFrameResize() {
+            function requestHeight() {
+                if (mdPreviewFrame.contentWindow) {
+                    mdPreviewFrame.contentWindow.postMessage({ type: 'duisdev-blog-post-request-height' }, '*');
+                }
+            }
+            mdPreviewFrame.addEventListener('load', requestHeight, { once: true });
+            [0, 80, 200, 500, 1000].forEach(function(delay) {
+                setTimeout(requestHeight, delay);
+            });
+        }
+
+        function updatePreview() {
+            const title = document.getElementById('postTitle').value.trim();
+            const content = document.getElementById('postContent').value.trim();
+            const imageName = document.getElementById('postImageName').value.trim();
+            const date = document.getElementById('postDate').value;
+
+            if (!title && !content) {
+                mdPreview.hidden = true;
+                return;
+            }
+
+            mdPreview.hidden = false;
+            mdPreview.classList.add('blog-md-preview--active');
+            mdPreviewMedia.innerHTML = buildMediaHtml(title, imageName);
+            mdPreviewFrame.srcdoc = buildIframeDocument(
+                buildTextFragmentHtml(title, content, date),
+                IFRAME_PATHS.admin
+            );
+            schedulePreviewFrameResize();
+        }
+
+        function buildTitleHtml(title, htmlAllowedFlag) {
+            if (!title) {
+                return '<div class="post-title"><p><em>Заголовок</em></p></div>';
+            }
+            return '<div class="post-title">' + BlogMarkdown.toHtml(title, htmlAllowedFlag) + '</div>';
+        }
+
+        function plainTitleFromMarkdown(title) {
+            if (!title) {
+                return 'Пост';
+            }
+            const plain = BlogMarkdown.stripHtml(BlogMarkdown.toHtml(title, allowHtml())).trim();
+            return plain || 'Пост';
+        }
+
+        function buildTextFragmentHtml(title, content, date) {
+            const titleBlock = buildTitleHtml(title, allowHtml());
+            const bodyHtml = content ? BlogMarkdown.toHtml(content, allowHtml()) : '<p><em>Описание</em></p>';
+            const dateHtml = date ? '<p class="post-date">' + formatDate(date) + '</p>' : '';
+
+            return titleBlock + '<div class="post-body">' + bodyHtml + '</div>' + dateHtml;
+        }
+
+        function buildIframeDocument(textHtml, paths) {
+            return '<!DOCTYPE html>\n<html lang="ru">\n<head>\n' +
+                '<meta charset="UTF-8">\n' +
+                '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+                '<link rel="stylesheet" href="' + paths.font + '">\n' +
+                '<link rel="stylesheet" href="' + paths.iframe + '">\n' +
+                '<link rel="stylesheet" href="' + paths.html + '">\n' +
+                '</head>\n<body>\n' +
+                '<div class="blog-post-iframe-content">' + textHtml + '</div>\n' +
+                '<script src="' + paths.script + '"><\/script>\n' +
+                '</body>\n</html>';
+        }
+
+        function escapeSrcdocAttribute(html) {
+            return html
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function buildPostTextIframe(textHtml, paths) {
+            const srcdoc = escapeSrcdocAttribute(buildIframeDocument(textHtml, paths));
+            return '<iframe class="blog-post-text-frame" title="Заголовок и текст поста" scrolling="no" srcdoc="' + srcdoc + '"></iframe>';
+        }
+
+        function buildDocMediaHtml(title, imageName) {
+            const plainTitle = plainTitleFromMarkdown(title);
+            const normalizedImageName = imageName
+                .replace(/^assets\//i, '')
+                .replace(/\\/g, '/')
+                .trim();
+            const mediaSrc = normalizedImageName
+                ? 'assets/' + normalizedImageName
+                : '';
+            const fileName = normalizedImageName
+                ? normalizedImageName.split('/').pop()
+                : '';
+            const documentTitle = fileName || plainTitle;
+            const downloadAttr = fileName
+                ? ' download="' + escapeAttribute(fileName) + '"'
+                : ' download';
+
+            return '<div class="doc-media">' +
+                '<div class="doc-media-main">' +
+                '<span class="doc-icon">DOC</span>' +
+                '<div>' +
+                '<p class="doc-name">' + escapeHTML(documentTitle) + '</p>' +
+                '<p class="doc-subtitle">Документ</p>' +
+                '</div>' +
+                '</div>' +
+                '<a class="doc-download-btn" href="' + escapeAttribute(mediaSrc || '#') + '"' + downloadAttr + '>Скачать</a>' +
+                '</div>';
+        }
+
+        function buildMediaHtml(title, imageName) {
+            const plainTitle = plainTitleFromMarkdown(title);
+            const normalizedImageName = imageName
+                .replace(/^assets\//i, '')
+                .replace(/\\/g, '/')
+                .trim();
+
+            const mediaSrc = normalizedImageName
+                ? (/\.[^/.]+$/i.test(normalizedImageName)
+                    ? 'assets/' + normalizedImageName
+                    : 'assets/' + normalizedImageName + '.png')
+                : 'assets/default.ico';
+
+            const mediaExtMatch = mediaSrc.match(/\.([a-z0-9]+)$/i);
+            const mediaExt = mediaExtMatch ? mediaExtMatch[1].toLowerCase() : '';
+            const videoExtensions = ['mov', 'mp4', 'mkv', 'avi', 'webm'];
+            const audioExtensions = ['mp3', 'wav', 'aiff', 'aac', 'ogg', 'wma', 'flac', 'm4a', 'alac'];
+            const imageExtensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'svg', 'ico', 'avif'];
+
+            if (videoExtensions.includes(mediaExt)) {
+                return '<video controls preload="metadata"><source src="' + escapeAttribute(mediaSrc) + '" type="video/' + (mediaExt === 'mov' ? 'quicktime' : mediaExt) + '">Ваш браузер не поддерживает видео.</video>';
+            }
+            if (audioExtensions.includes(mediaExt)) {
+                return '<audio controls preload="metadata"><source src="' + escapeAttribute(mediaSrc) + '" type="audio/' + (mediaExt === 'aiff' ? 'aiff' : mediaExt) + '">Ваш браузер не поддерживает аудио.</audio>';
+            }
+            if (mediaExt && !imageExtensions.includes(mediaExt)) {
+                return buildDocMediaHtml(title, imageName);
+            }
+            return '<img src="' + escapeAttribute(mediaSrc) + '" alt="' + escapeAttribute(plainTitle) + '">';
+        }
+
+        previewFields.forEach(function(id) {
+            const el = document.getElementById(id);
+            el.addEventListener('input', updatePreview);
+            el.addEventListener('change', updatePreview);
+        });
+        allowHtmlCheckbox.addEventListener('change', updatePreview);
+        updatePreview();
+
+        function loadPostHTMLByNumber(num) {
+            const postUrl = `../posts/post${num}.html`;
+
+            return new Promise((resolve, reject) => {
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = postUrl;
+
+                const cleanup = () => {
+                    if (iframe.parentNode) {
+                        iframe.parentNode.removeChild(iframe);
+                    }
+                };
+
+                iframe.onload = () => {
+                    try {
+                        const doc = iframe.contentDocument || iframe.contentWindow.document;
+                        const postContent = doc.querySelector('.post-content');
+
+                        if (!postContent) {
+                            cleanup();
+                            reject(new Error('Пост не найден'));
+                            return;
+                        }
+
+                        const html = doc.documentElement.outerHTML;
+                        cleanup();
+                        resolve({ html, postUrl });
+                    } catch (error) {
+                        cleanup();
+                        reject(error);
+                    }
+                };
+
+                iframe.onerror = () => {
+                    cleanup();
+                    reject(new Error('Пост не найден'));
+                };
+
+                document.body.appendChild(iframe);
+            });
+        }
+
+        function getNextPostNumber() {
+            let postNumber = 1;
+
+            return new Promise(resolve => {
+                function tryLoadPost(num) {
+                    loadPostHTMLByNumber(num)
+                        .then(() => tryLoadPost(num + 1))
+                        .catch(() => resolve(num));
+                }
+
+                tryLoadPost(postNumber);
+            });
+        }
+
+        postForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('postTitle').value.trim();
+            const imageName = document.getElementById('postImageName').value.trim();
+            const content = document.getElementById('postContent').value.trim();
+            const date = document.getElementById('postDate').value;
+
+            if (!title || !content || !date) {
+                showMessage('Заполните все поля!', 'error');
+                return;
+            }
+
+            const postHTML = generatePostContent(title, imageName, content, date, allowHtml());
+
+            showMessage(`
+                <strong>Пост готов к сохранению!</strong><br>
+                1. Скопируйте код ниже<br>
+                2. Создайте файл <code>post*.html</code> в каталоге <code>/posts/</code><br>
+                3. Вставьте код в новый файл и сохраните<br>
+                4. При необходимости добавьте файлы в каталог <code>/assets/</code><br>
+                5. Выполните сборку в каталоге <code>blog/</code>: <code>javac build-index.java && java BlogIndexGenerator .</code><br>
+                6. Обновите главную страницу блога<br><br>
+                <div class="generated-code-wrap">
+                    <button type="button" class="copy-code-btn" title="Скопировать код">📋</button>
+                    <pre class="generated-code">${escapeHTML(postHTML)}</pre>
+                </div>
+            `, 'success');
+        });
+
+        function generatePostContent(title, imageName, content, date, htmlAllowed) {
+            const textHtml = buildTextFragmentHtmlFromRaw(title, content, date, htmlAllowed);
+            const mediaHTML = buildPostMediaHtml(title, imageName);
+            const textFrame = buildPostTextIframe(textHtml, IFRAME_PATHS.post);
+
+            return `<article class="post-preview">
+    ${mediaHTML}
+    ${textFrame}
+</article>`;
+        }
+
+        function buildPostMediaHtml(title, imageName) {
+            const plainTitle = plainTitleFromMarkdown(title);
+            const normalizedImageName = imageName
+                .replace(/^assets\//i, '')
+                .replace(/\\/g, '/')
+                .trim();
+
+            const mediaSrc = normalizedImageName
+                ? (/\.[^/.]+$/i.test(normalizedImageName)
+                    ? 'assets/' + normalizedImageName
+                    : 'assets/' + normalizedImageName + '.png')
+                : 'assets/default.ico';
+
+            const mediaExtMatch = mediaSrc.match(/\.([a-z0-9]+)$/i);
+            const mediaExt = mediaExtMatch ? mediaExtMatch[1].toLowerCase() : '';
+            const videoExtensions = ['mov', 'mp4', 'mkv', 'avi', 'webm'];
+            const audioExtensions = ['mp3', 'wav', 'aiff', 'aac', 'ogg', 'wma', 'flac', 'm4a', 'alac'];
+            const imageExtensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'svg', 'ico', 'avif'];
+
+            if (videoExtensions.includes(mediaExt)) {
+                return '<video controls preload="metadata"><source src="' + escapeAttribute(mediaSrc) + '" type="video/' + (mediaExt === 'mov' ? 'quicktime' : mediaExt) + '">Ваш браузер не поддерживает видео.</video>';
+            }
+            if (audioExtensions.includes(mediaExt)) {
+                return '<audio controls preload="metadata"><source src="' + escapeAttribute(mediaSrc) + '" type="audio/' + (mediaExt === 'aiff' ? 'aiff' : mediaExt) + '">Ваш браузер не поддерживает аудио.</audio>';
+            }
+            if (mediaExt && !imageExtensions.includes(mediaExt)) {
+                const downloadAttr = normalizedImageName
+                    ? ' download="' + escapeAttribute(normalizedImageName.split('/').pop()) + '"'
+                    : ' download';
+                return '<p><a class="post-document" href="' + escapeAttribute(mediaSrc) + '"' + downloadAttr + '>Документ: ' + escapeHTML(plainTitle) + '</a></p>';
+            }
+            return '<img src="' + escapeAttribute(mediaSrc) + '" alt="' + escapeAttribute(plainTitle) + '">';
+        }
+
+        function buildTextFragmentHtmlFromRaw(title, content, date, htmlAllowed) {
+            const titleBlock = buildTitleHtml(title, htmlAllowed);
+            const bodyHtml = BlogMarkdown.toHtml(content, htmlAllowed);
+
+            return titleBlock + '\n<div class="post-body">\n' + bodyHtml + '</div>\n' +
+                '<p class="post-date">' + formatDate(date) + '</p>';
+        }
+
+        function formatDate(dateString) {
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            return new Date(dateString).toLocaleDateString('ru-RU', options);
+        }
+
+        function escapeHTML(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function escapeAttribute(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function showMessage(text, type) {
+            messageDiv.innerHTML = text;
+            messageDiv.className = 'blog-message ' + type;
+        }
+
+        messageDiv.addEventListener('click', async function(e) {
+            const copyButton = e.target.closest('.copy-code-btn');
+            if (!copyButton) return;
+            if (copyButton.disabled) return;
+
+            const wrap = copyButton.closest('.generated-code-wrap');
+            const codeEl = wrap ? wrap.querySelector('.generated-code') : null;
+            if (!codeEl) return;
+            copyButton.disabled = true;
+            setTimeout(() => {
+                copyButton.disabled = false;
+            }, 300);
+
+            try {
+                await navigator.clipboard.writeText(codeEl.innerText);
+                copyButton.textContent = '✓';
+                if (copyButton._resetTimer) clearTimeout(copyButton._resetTimer);
+                copyButton._resetTimer = setTimeout(() => {
+                    copyButton.textContent = '📋';
+                    copyButton._resetTimer = null;
+                }, 1200);
+            } catch (err) {
+                copyButton.textContent = '!';
+                if (copyButton._resetTimer) clearTimeout(copyButton._resetTimer);
+                copyButton._resetTimer = setTimeout(() => {
+                    copyButton.textContent = '📋';
+                    copyButton._resetTimer = null;
+                }, 1200);
+            }
+        });
+  </script>
+</body>
+</html>

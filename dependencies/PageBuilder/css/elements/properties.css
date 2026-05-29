@@ -1,0 +1,79 @@
+/*Тут будут небольшие постоянные свойства для элементов страницы*/
+* {
+    /* Сброс отступов и рамок */
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    /* Альтернативная боксовая модель — ширина включает padding и border */
+    box-sizing: border-box;
+
+    /* Убираем стандартное подчеркивание у ссылок (часто переопределяют для <a>) */
+    text-decoration: none;
+
+    /* Наследуем шрифт от body (удобно для глобальных изменений) */
+    font-family: inherit;
+
+    /* Убираем маркеры у списков (для ul/ol — добавляют вручную) */
+    list-style: none;
+
+    /* Линия обводки (часто переопределяют для :focus) */
+    outline: none;
+
+    /* Фон по умолчанию */
+    background: transparent;
+
+    /* Сглаживание шрифтов (для WebKit) */
+    -webkit-font-smoothing: antialiased;
+
+    /* Более консистентный рендеринг шрифтов */
+    font-synthesis: none;
+
+    /* Для предотвращения растягивания элементов (например, изображений) */
+    max-width: 100%;
+
+    /* Вертикальное выравнивание для инлайн-блоков */
+    vertical-align: baseline;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.border {
+    padding: 40px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+}
+
+.border-hover {
+    border-radius: 0px;
+    transition: border-radius 0.3s ease;
+}
+.border-hover:hover {
+    border-radius: 20px;
+}
+
+.border-hover-unverse {
+    border-radius: 20px;
+    transition: border-radius 0.3s ease;
+}
+.border-hover-unverse:hover {
+    border-radius: 0px;
+}
+
+/* Подсветка поля ввода */
+.input {
+    padding: 8px 12px;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.input:focus {
+    border-color: dodgerblue;
+    box-shadow: 0 0 5px dodgerblue;
+}

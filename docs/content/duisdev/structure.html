@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Структура проекта</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Структура проекта</h1>
+      <p>Карта папок DUISDev — что где лежит и за что отвечает.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Корень сайта</h2>
+        <code class="doc-path">DUISDev/</code>
+        <table class="doc-tree">
+          <thead><tr><th>Путь</th><th>Назначение</th></tr></thead>
+          <tbody>
+            <tr><td><code>index.html</code></td><td>Главная: hero, разделы, команда</td></tr>
+            <tr><td><code>css/</code></td><td>Общие стили: шрифты, меню, footer, страницы разделов</td></tr>
+            <tr><td><code>js/</code></td><td>Скрипты: include-modules, страницы разделов</td></tr>
+            <tr><td><code>modules/</code></td><td>HTML-модули: logo, menu, footer, hero, features, team</td></tr>
+            <tr><td><code>images/</code></td><td>Изображения главной и общие ресурсы</td></tr>
+            <tr><td><code>dependencies/</code></td><td>Page Builder и другие зависимости</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="article-entry">
+        <h2>Разделы</h2>
+        <table class="doc-tree">
+          <thead><tr><th>Папка</th><th>Описание</th></tr></thead>
+          <tbody>
+            <tr><td><code>blog/</code></td><td>Блог, посты, админка, сборщик <code>build-index.java</code></td></tr>
+            <tr><td><code>articles/</code></td><td>Статьи по категориям, <code>manifest.json</code></td></tr>
+            <tr><td><code>videoplatform/</code></td><td>Видеокаталог, <code>manifest.json</code>, watch.html</td></tr>
+            <tr><td><code>docs/</code></td><td>Документация (этот раздел)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="article-entry">
+        <h2>Страница в подпапке</h2>
+        <p>Укажите корень сайта для модулей и скриптов:</p>
+        <pre><code>&lt;html lang="ru" data-site-root="../"&gt;
+&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;header data-duisdev-module="menu"&gt;&lt;/header&gt;
+  &lt;main&gt;Контент раздела&lt;/main&gt;
+  &lt;footer data-duisdev-module="footer"&gt;&lt;/footer&gt;
+  &lt;script src="../js/include-modules.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p class="article-content__note">Для главной <code>data-site-root=""</code>, для вложенных разделов — <code>../</code> или глубже.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

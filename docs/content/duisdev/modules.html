@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модули и include</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Модули и include</h1>
+      <p>Как работает подключение общих блоков на всех страницах.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Разметка страницы</h2>
+        <pre><code>&lt;header class="site-header"&gt;
+  &lt;div data-duisdev-module="logo"&gt;&lt;/div&gt;
+  &lt;div data-duisdev-module="menu"&gt;&lt;/div&gt;
+&lt;/header&gt;
+&lt;main&gt;Контент страницы&lt;/main&gt;
+&lt;footer data-duisdev-module="footer"&gt;&lt;/footer&gt;
+&lt;script src="js/include-modules.js" defer&gt;&lt;/script&gt;</code></pre>
+      </div>
+      <div class="article-entry">
+        <h2>Файлы модулей</h2>
+        <table class="doc-tree">
+          <thead><tr><th>Модуль</th><th>Файл</th></tr></thead>
+          <tbody>
+            <tr><td>Логотип</td><td><code>modules/logo.html</code></td></tr>
+            <tr><td>Меню</td><td><code>modules/menu.html</code></td></tr>
+            <tr><td>Подвал</td><td><code>modules/footer.html</code></td></tr>
+            <tr><td>Hero / Features / Team</td><td><code>modules/hero.html</code>, <code>features.html</code>, <code>team.html</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="article-entry">
+        <h2>Плейсхолдер {{ROOT}}</h2>
+        <p>В модулях ссылки пишите так: <code>href="{{ROOT}}blog/index.html"</code>. Скрипт подставит правильный путь с любой глубины вложенности.</p>
+        <p class="article-content__note">Чтобы изменить меню на всём сайте — правьте только <code>modules/menu.html</code>.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>
