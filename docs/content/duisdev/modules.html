@@ -17,7 +17,9 @@
     <div class="article-content__body">
       <div class="article-entry">
         <h2>Разметка страницы</h2>
-        <pre><code>&lt;header class="site-header"&gt;
+        <pre><code>&lt;html lang="ru" data-site-root=""&gt;
+...
+&lt;header class="site-header"&gt;
   &lt;div data-duisdev-module="logo"&gt;&lt;/div&gt;
   &lt;div data-duisdev-module="menu"&gt;&lt;/div&gt;
 &lt;/header&gt;
@@ -38,8 +40,8 @@
         </table>
       </div>
       <div class="article-entry">
-        <h2>Плейсхолдер {{ROOT}}</h2>
-        <p>В модулях ссылки пишите так: <code>href="{{ROOT}}blog/index.html"</code>. Скрипт подставит правильный путь с любой глубины вложенности.</p>
+        <h2>Пути в модулях</h2>
+        <p>В модулях используйте обычные пути от корня сайта: <code>href="blog/index.html"</code>. Для страниц в подпапках значение <code>data-site-root</code> добавится автоматически.</p>
         <p class="article-content__note">Чтобы изменить меню на всём сайте — правьте только <code>modules/menu.html</code>.</p>
       </div>
     </div>

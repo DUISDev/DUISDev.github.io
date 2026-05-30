@@ -5,7 +5,6 @@
   width: 100%;
   margin: 0 0 0.85rem;
   border-collapse: collapse;
-  font-size: 1rem;
 }
 
 .doc-tree th,
@@ -35,7 +34,6 @@
   margin: 0 0 0.75rem;
   padding: 0.65rem 0.85rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.95rem;
   color: var(--brand-deep);
   background: rgba(30, 107, 255, 0.08);
   border: 2px solid rgba(30, 107, 255, 0.18);
@@ -53,7 +51,6 @@
 
 .doc-demo__label {
   margin: 0 0 0.55rem;
-  font-size: 0.95rem;
   font-weight: 700;
   color: var(--brand-blue);
   text-transform: uppercase;
@@ -81,7 +78,6 @@
   align-items: center;
   padding: 0.35rem 0.65rem;
   margin: 0 0.35rem 0.35rem 0;
-  font-size: 0.95rem;
   font-weight: 600;
   color: var(--brand-deep);
   background: rgba(0, 255, 234, 0.12);
@@ -103,6 +99,5 @@
 
 .article-content__body h3 {
   margin: 0.85rem 0 0.45rem;
-  font-size: 1.05rem;
   color: var(--brand-deep);
 }

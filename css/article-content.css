@@ -10,10 +10,6 @@
   --pb-glow: 0 0 0 2px rgba(30, 107, 255, 0.45);
 }
 
-html {
-  font-size: 118%;
-}
-
 html,
 body {
   margin: 0;
@@ -22,10 +18,23 @@ body {
 }
 
 body {
-  font-size: 1.05rem;
   line-height: 1.6;
   color: var(--text-primary);
   background: transparent;
+}
+
+body.duisdev-normalized-article {
+  max-width: 52rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+body.duisdev-normalized-article p,
+body.duisdev-normalized-article li,
+body.duisdev-normalized-article td,
+body.duisdev-normalized-article th {
+  line-height: 1.55;
 }
 
 .article-content {
@@ -47,27 +56,23 @@ body {
 
 .article-content__header h1 {
   margin: 0 0 0.5rem;
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
   color: var(--brand-deep);
 }
 
 .article-content__header p {
   margin: 0;
   color: var(--text-muted);
-  font-size: clamp(1rem, 2vw, 1.1rem);
   line-height: 1.6;
 }
 
 .article-content__body h2 {
   margin: 0 0 0.75rem;
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   color: var(--brand-deep);
 }
 
 .article-content__body p {
   margin: 0 0 0.75rem;
   color: var(--text-muted);
-  font-size: 1.05rem;
   line-height: 1.65;
 }
 
@@ -80,7 +85,6 @@ body {
   border-radius: 4px;
   background: rgba(30, 107, 255, 0.1);
   color: var(--brand-deep);
-  font-size: 0.92em;
 }
 
 .article-content__body pre {
@@ -105,7 +109,6 @@ body {
   border-radius: 0 10px 10px 0;
   background: rgba(255, 255, 255, 0.55);
   color: var(--text-muted);
-  font-size: 0.95rem;
   line-height: 1.55;
 }
 
@@ -124,6 +127,5 @@ body {
 .article-entry__desc {
   margin: 0.35rem 0 0;
   color: var(--text-muted);
-  font-size: 0.95rem;
   line-height: 1.55;
 }

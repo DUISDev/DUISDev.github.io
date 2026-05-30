@@ -17,7 +17,7 @@
  *   data-site-root="../"
  *   script src="../js/include-modules.js"
  *
- * В модулях используйте {{ROOT}} для путей к ресурсам и index.html.
+ * В модулях используйте пути от корня сайта: index.html.
  */
 (function () {
   'use strict';
@@ -56,16 +56,6 @@
   }
 
   /**
-   * Подставляет базовый путь вместо {{ROOT}} в HTML-фрагменте.
-   * @param {string} html
-   * @param {string} siteRoot
-   * @returns {string}
-   */
-  function applySiteRoot(html, siteRoot) {
-    return html.split('{{ROOT}}').join(siteRoot);
-  }
-
-  /**
    * Загружает HTML-фрагмент модуля.
    * @param {string} name
    * @param {string} siteRoot
@@ -84,7 +74,26 @@
       }
       return response.text();
     }).then(function (html) {
-      return applySiteRoot(extractModuleFragment(html), siteRoot);
+      return extractModuleFragment(html);
+    });
+  }
+
+  function isStablePath(value) {
+    return !value || /^(?:[a-z][a-z0-9+.-]*:|\/\/|#|\/|\.\.\/)/i.test(value);
+  }
+
+  function applyBasePath(element, basePath) {
+    if (!basePath) {
+      return;
+    }
+
+    ['href', 'src'].forEach(function (attr) {
+      Array.prototype.forEach.call(element.querySelectorAll('[' + attr + ']'), function (node) {
+        var value = node.getAttribute(attr);
+        if (!isStablePath(value)) {
+          node.setAttribute(attr, basePath + value);
+        }
+      });
     });
   }
 
@@ -94,8 +103,9 @@
    * @param {string} html
    * @param {string} name
    */
-  function insertModule(element, html, name) {
+  function insertModule(element, html, name, siteRoot) {
     element.innerHTML = html;
+    applyBasePath(element, siteRoot);
     element.removeAttribute(MODULE_ATTR);
     element.setAttribute('data-duisdev-loaded', name);
   }
@@ -118,7 +128,7 @@
 
       loadModule(name, siteRoot)
         .then(function (html) {
-          insertModule(element, html, name);
+          insertModule(element, html, name, siteRoot);
         })
         .catch(function (error) {
           console.error('[DUISDev modules]', error.message);

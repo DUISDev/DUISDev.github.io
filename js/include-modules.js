@@ -17,7 +17,7 @@
  *   data-site-root="../"
  *   script src="../js/include-modules.js"
  *
- * In modules use {{ROOT}} for paths to resources (home: {{ROOT}} or {{ROOT}}#section).
+ * Module links use paths from the site root, for example: index.html.
  */
 (function () {
   'use strict';
@@ -25,39 +25,12 @@
   var MODULE_ATTR = 'data-duisdev-module';
   var MODULE_PATTERN = /^[a-z0-9-]+$/;
 
-  /** Вычисляет {{ROOT}} по URL, если data-site-root не задан на странице. */
-  function detectSiteRootFromPath() {
-    var segments = (window.location.pathname || '/').split('/').filter(function (segment) {
-      return segment;
-    });
-
-    if (segments.length && /\.html$/i.test(segments[segments.length - 1])) {
-      segments.pop();
-    }
-
-    if (!segments.length) {
+  function getSiteRoot() {
+    var root = document.documentElement.getAttribute('data-site-root') || '';
+    if (root === '.' || root === './') {
       return '';
     }
-
-    return new Array(segments.length + 1).join('../');
-  }
-
-  /**
-   * Base путь of текущей page to корня site.
-   * @returns {string}
-   */
-  function getSiteRoot() {
-    var html = document.documentElement;
-
-    if (html.hasAttribute('data-site-root')) {
-      var root = html.getAttribute('data-site-root');
-      if (root == null || root === '' || root === '.' || root === './') {
-        return '';
-      }
-      return root.endsWith('/') ? root : root + '/';
-    }
-
-    return detectSiteRootFromPath();
+    return root && !root.endsWith('/') ? root + '/' : root;
   }
 
   /**
@@ -79,16 +52,6 @@
   }
 
   /**
-   * Give base путь вместо {{ROOT}} in HTML-фрагменте.
-   * @param {string} html
-   * @param {string} siteRoot
-   * @returns {string}
-   */
-  function applySiteRoot(html, siteRoot) {
-    return html.split('{{ROOT}}').join(siteRoot);
-  }
-
-  /**
    * Load HTML-фрагмент of module.
    * @param {string} name
    * @param {string} siteRoot
@@ -107,7 +70,26 @@
       }
       return response.text();
     }).then(function (html) {
-      return applySiteRoot(extractModuleFragment(html), siteRoot);
+      return extractModuleFragment(html);
+    });
+  }
+
+  function isStablePath(value) {
+    return !value || /^(?:[a-z][a-z0-9+.-]*:|\/\/|#|\/|\.\.\/)/i.test(value);
+  }
+
+  function applyBasePath(element, basePath) {
+    if (!basePath) {
+      return;
+    }
+
+    ['href', 'src'].forEach(function (attr) {
+      Array.prototype.forEach.call(element.querySelectorAll('[' + attr + ']'), function (node) {
+        var value = node.getAttribute(attr);
+        if (!isStablePath(value)) {
+          node.setAttribute(attr, basePath + value);
+        }
+      });
     });
   }
 
@@ -117,8 +99,9 @@
    * @param {string} html
    * @param {string} name
    */
-  function insertModule(element, html, name) {
+  function insertModule(element, html, name, siteRoot) {
     element.innerHTML = html;
+    applyBasePath(element, siteRoot);
     element.removeAttribute(MODULE_ATTR);
     element.setAttribute('data-duisdev-loaded', name);
     updateSiteHeaderStickyOffset();
@@ -171,7 +154,7 @@
 
       loadModule(name, siteRoot)
         .then(function (html) {
-          insertModule(element, html, name);
+          insertModule(element, html, name, siteRoot);
         })
         .catch(function (error) {
           console.error('[DUISDev modules]', error.message);

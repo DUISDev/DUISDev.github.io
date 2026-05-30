@@ -15,27 +15,27 @@
       <nav class="site-header__nav" aria-label="Основная навигация">
 
         <!-- ── Главная страница ── -->
-        <a class="site-header__link" href="{{ROOT}}#hero">Главная</a>
-        <a class="site-header__link" href="{{ROOT}}#features">Разделы</a>
-        <a class="site-header__link" href="{{ROOT}}#team">Команда</a>
+        <a class="site-header__link" href="index.html#hero">Главная</a>
+        <a class="site-header__link" href="index.html#features">Разделы</a>
+        <a class="site-header__link" href="index.html#team">Команда</a>
 
         <!-- ── Проекты DUISDev ── -->
         <details class="site-header__dropdown">
           <summary class="site-header__link">Проекты</summary>
           <div class="site-header__submenu" role="group" aria-label="Проекты DUISDev">
-            <a class="site-header__sublink" href="{{ROOT}}videoplatform/index.html">
+            <a class="site-header__sublink" href="videoplatform/index.html">
               <span class="site-header__sublink-title">Видеоплатформа</span>
               <span class="site-header__sublink-desc">Уроки, обзоры и стримы</span>
             </a>
-            <a class="site-header__sublink" href="{{ROOT}}docs/index.html">
+            <a class="site-header__sublink" href="docs/index.html">
               <span class="site-header__sublink-title">Документация</span>
               <span class="site-header__sublink-desc">Инструкции и справочники</span>
             </a>
-            <a class="site-header__sublink" href="{{ROOT}}dependencies/PageBuilder/index.html">
+            <a class="site-header__sublink" href="docs/read.html?doc=page-builder">
               <span class="site-header__sublink-title">Page Builder</span>
               <span class="site-header__sublink-desc">Фреймворк для вёрстки</span>
             </a>
-            <a class="site-header__sublink" href="{{ROOT}}articles/index.html">
+            <a class="site-header__sublink" href="articles/index.html">
               <span class="site-header__sublink-title">Статьи</span>
               <span class="site-header__sublink-desc">Гайды и полезные материалы</span>
             </a>
@@ -43,24 +43,13 @@
         </details>
 
         <!-- ── О проекте ── -->
-        <a class="site-header__link" href="#">Помочь проекту</a>
-        <a class="site-header__link" href="{{ROOT}}blog/index.html">Блог</a>
-        <a class="site-header__link" href="{{ROOT}}#footer">О нас</a>
+        <a class="site-header__link" href="help.html">Поддержать проект</a>
+        <a class="site-header__link" href="blog/index.html">Блог</a>
+        <a class="site-header__link" href="about.html">О нас</a>
 
       </nav>
 <!-- duisdev-module:end -->
     </header>
   </div>
-  <script>
-    (function () {
-      var root = '../';
-      document.querySelectorAll('.menu-module-preview [href]').forEach(function (link) {
-        var href = link.getAttribute('href');
-        if (href && href.indexOf('{{ROOT}}') !== -1) {
-          link.setAttribute('href', href.split('{{ROOT}}').join(root));
-        }
-      });
-    }());
-  </script>
 </body>
 </html>

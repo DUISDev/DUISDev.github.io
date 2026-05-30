@@ -44,17 +44,20 @@
       </div>
       <div class="article-entry">
         <h2>Страница в подпапке</h2>
-        <p>Укажите корень сайта для модулей и скриптов:</p>
+        <p>Для страниц внутри папок укажите путь до корня сайта и подключите скрипт с тем же префиксом:</p>
         <pre><code>&lt;html lang="ru" data-site-root="../"&gt;
 &lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;/head&gt;
 &lt;body&gt;
-  &lt;header data-duisdev-module="menu"&gt;&lt;/header&gt;
+  &lt;header class="site-header"&gt;
+    &lt;div data-duisdev-module="logo"&gt;&lt;/div&gt;
+    &lt;div data-duisdev-module="menu"&gt;&lt;/div&gt;
+  &lt;/header&gt;
   &lt;main&gt;Контент раздела&lt;/main&gt;
   &lt;footer data-duisdev-module="footer"&gt;&lt;/footer&gt;
   &lt;script src="../js/include-modules.js" defer&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-        <p class="article-content__note">Для главной <code>data-site-root=""</code>, для вложенных разделов — <code>../</code> или глубже.</p>
+        <p class="article-content__note">На страницах в корне используйте <code>data-site-root=""</code>, на один уровень глубже — <code>../</code>, на два уровня — <code>../../</code>.</p>
       </div>
     </div>
   </article>

@@ -1,13 +1,5 @@
 /* Раздел документации DUISDev */
 
-html {
-  font-size: 118%;
-}
-
-.page-docs {
-  font-size: 1.05rem;
-}
-
 .page-docs .site-header [data-duisdev-loaded] {
   display: contents;
 }
@@ -31,14 +23,14 @@ html {
 
 .docs-page__header h1 {
   margin: 0 0 0.45rem;
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   color: var(--brand-deep);
 }
 
 .docs-page__header p {
   margin: 0;
   color: var(--text-muted);
-  font-size: clamp(1rem, 2vw, 1.08rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   line-height: 1.6;
 }
 
@@ -47,7 +39,7 @@ html {
   padding: 2rem 1.5rem;
   text-align: center;
   color: var(--text-muted);
-  font-size: clamp(1rem, 2vw, 1.08rem);
+  font-size: 0.95rem;
   background: var(--surface);
   border: var(--pb-border);
   border-radius: 16px;
@@ -90,7 +82,7 @@ html {
 
 .docs-card__title {
   margin: 0;
-  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+  font-size: 1.1rem;
   color: var(--brand-deep);
 }
 
@@ -98,8 +90,8 @@ html {
   margin: 0;
   flex: 1;
   color: var(--text-muted);
-  font-size: clamp(0.98rem, 1.9vw, 1.05rem);
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .docs-card__meta {
@@ -139,7 +131,7 @@ html {
   gap: 0.55rem;
   margin-bottom: 1.25rem;
   padding: 0.7rem 1.15rem;
-  font-size: clamp(1rem, 2vw, 1.08rem);
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--brand-deep);
   background: var(--surface);
@@ -193,7 +185,7 @@ html {
 
 .docs-sidebar__title {
   margin: 0 0 1rem;
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-size: 1.05rem;
   color: var(--brand-deep);
   line-height: 1.35;
 }
@@ -258,15 +250,24 @@ html {
   padding: 2rem 1.5rem;
   text-align: center;
   color: var(--text-muted);
-  font-size: clamp(1rem, 2vw, 1.08rem);
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
 .docs-frame {
   width: 100%;
+  height: clamp(34rem, 78vh, 58rem);
+  max-height: calc(100vh - 10rem);
   border: none;
   display: block;
   background: transparent;
+}
+
+@media (max-width: 640px) {
+  .docs-frame {
+    height: calc(100vh - 5rem);
+    min-height: 36rem;
+  }
 }
 
 @media (max-width: 960px) {
