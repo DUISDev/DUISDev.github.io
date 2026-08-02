@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru" data-site-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../dependencies/X-Coin.ico">
+  <title>Видеоплатформа — DUISDev</title>
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/page_home.css">
+  <link rel="stylesheet" href="../css/videos-page.css">
+</head>
+<body class="page-home page-videos">
+
+  <header class="site-header">
+    <div data-duisdev-module="logo"></div>
+    <div data-duisdev-module="menu"></div>
+  </header>
+
+  <main class="videos-main">
+    <header class="videos-page__header">
+      <h1>Видеоплатформа</h1>
+      <p>Уроки, обзоры, плейлисты и авторы</p>
+    </header>
+
+    <div class="videos-shell">
+      <aside class="videos-sidebar" aria-label="Навигация видеоплатформы">
+        <p class="videos-sidebar__title">Разделы</p>
+        <ul class="videos-nav">
+          <li><button type="button" class="is-active" data-videos-view="home"><span class="videos-nav__icon">▶</span> Главная</button></li>
+          <li><button type="button" data-videos-view="playlists"><span class="videos-nav__icon">☰</span> Плейлисты</button></li>
+          <li><button type="button" data-videos-view="authors"><span class="videos-nav__icon">👤</span> Авторы</button></li>
+        </ul>
+
+        <p class="videos-sidebar__title">Авторы</p>
+        <ul class="videos-sidebar-list" id="videos-sidebar-authors"></ul>
+      </aside>
+
+      <div class="videos-stage">
+        <section class="videos-panel" id="videos-home-panel">
+          <div id="videos-home-default">
+            <div class="videos-panel__head">
+              <div>
+                <h2 id="videos-panel-title">Главная</h2>
+                <p id="videos-panel-description">Видео, уроки и записи DUISDev</p>
+              </div>
+            </div>
+            <div class="videos-grid" id="videos-home-grid"></div>
+          </div>
+
+          <div id="videos-channel-view" hidden>
+            <header class="videos-channel-header" id="videos-channel-header"></header>
+            <nav class="videos-channel-tabs" id="videos-channel-tabs" role="tablist" aria-label="Разделы канала">
+              <button type="button" class="is-active" data-channel-tab="all" role="tab" aria-selected="true">Все</button>
+              <button type="button" data-channel-tab="playlists" role="tab" aria-selected="false">Плейлисты</button>
+            </nav>
+            <div class="videos-channel-panel videos-grid" id="videos-channel-all-grid" role="tabpanel" data-channel-tab="all"></div>
+            <div class="videos-channel-panel" id="videos-channel-playlists-root" hidden role="tabpanel" data-channel-tab="playlists"></div>
+          </div>
+        </section>
+
+        <section class="videos-panel" id="videos-playlists-panel" hidden>
+          <div class="videos-panel__head">
+            <div>
+              <h2>Плейлисты</h2>
+              <p>Подборки по темам.</p>
+            </div>
+          </div>
+          <div id="videos-playlists-root"></div>
+        </section>
+
+        <section class="videos-panel" id="videos-authors-panel" hidden>
+          <div class="videos-panel__head">
+            <div>
+              <h2>Авторы</h2>
+              <p>Каналы на видеоплатформе DUISDev.</p>
+            </div>
+          </div>
+          <div id="videos-authors-root"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" data-duisdev-module="footer"></footer>
+
+  <script src="../js/include-modules.js" defer></script>
+  <script src="../js/videos-data.js" defer></script>
+  <script src="../js/videos-page.js" defer></script>
+</body>
+</html>

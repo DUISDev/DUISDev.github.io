@@ -1,0 +1,18 @@
+/* Animations */
+/* /hover-animations */
+@import url('animations/hover-animations/hover-animations.css');
+/* /loading-animations */
+@import url('animations/loading-animations/loading-animations.css');
+/* /constant-animations */
+@import url('animations/constant-animations/constant-animations.css');
+
+/* Colors */
+@import url('colors/background-colors.css');
+@import url('colors/text-colors.css');
+
+/* Elements */
+@import url('elements/containers.css');
+@import url('elements/size.css');
+@import url('elements/properties.css');
+@import url('elements/custom.css');
+@import url('elements/themes.css');

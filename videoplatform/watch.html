@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru" data-site-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../dependencies/X-Coin.ico">
+  <title>Просмотр — Видеоплатформа DUISDev</title>
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/page_home.css">
+  <link rel="stylesheet" href="../css/videos-page.css">
+</head>
+<body class="page-home page-videos">
+
+  <header class="site-header">
+    <div data-duisdev-module="logo"></div>
+    <div data-duisdev-module="menu"></div>
+  </header>
+
+  <main class="videos-watch-main">
+    <a class="videos-back-link" href="index.html"><span class="videos-back-link__icon" aria-hidden="true">←</span> К видеоплатформе</a>
+
+    <div class="videos-watch-layout">
+      <section class="videos-player-shell">
+        <div class="videos-player" id="videos-player"></div>
+
+        <div class="videos-watch-meta">
+          <h1 id="videos-watch-title">Загрузка…</h1>
+          <div class="videos-watch-meta__row">
+            <div id="videos-watch-author"></div>
+          </div>
+          <div class="videos-watch-description" id="videos-watch-description"></div>
+        </div>
+      </section>
+
+      <aside class="videos-related" aria-label="Похожие видео">
+        <h2>Далее</h2>
+        <div class="videos-related-list" id="videos-related-list"></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="footer" data-duisdev-module="footer"></footer>
+
+  <script src="../js/include-modules.js" defer></script>
+  <script src="../js/videos-data.js" defer></script>
+  <script src="../js/video-watch.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru" data-site-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../dependencies/X-Coin.ico">
+  <title>Блог — DUISDev</title>
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/page_home.css">
+  <link rel="stylesheet" href="../css/blog-page.css">
+</head>
+<body class="page-home page-blog">
+
+  <header class="site-header">
+    <div data-duisdev-module="logo"></div>
+    <div data-duisdev-module="menu"></div>
+  </header>
+
+  <main class="blog-main">
+    <header class="blog-page__header">
+      <h1>Блог</h1>
+      <p>Новости и заметки команды DUISDev.</p>
+      <a class="blog-admin-link" href="admin/index.html">Админ</a>
+    </header>
+
+    <section class="blog-posts posts-list">
+<article class="post-preview">
+    <div class="doc-media">
+        <div class="doc-media-main">
+            <span class="doc-icon">DOC</span>
+            <div>
+                <p class="doc-name">Document.docx</p>
+                <p class="doc-subtitle">Документ</p>
+            </div>
+        </div>
+        <a class="doc-download-btn" href="assets/Document.docx" download="Document.docx">Скачать</a>
+    </div>
+    <iframe class="blog-post-text-frame" title="Заголовок и текст поста" scrolling="no" srcdoc="<!DOCTYPE html><html lang=&quot;ru&quot;><head><meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;><link rel=&quot;stylesheet&quot; href=&quot;../css/font.css&quot;><link rel=&quot;stylesheet&quot; href=&quot;css/post-iframe-content.css&quot;><link rel=&quot;stylesheet&quot; href=&quot;css/post-html-content.css&quot;></head><body><div class=&quot;blog-post-iframe-content&quot;><div class=&quot;post-title&quot;><h2>Заголовок</h2></div><div class=&quot;post-body&quot;><p>67</p></div><p class=&quot;post-date&quot;>29 мая 2026 г.</p></div><script src=&quot;js/post-iframe-content.js&quot;></script></body></html>"></iframe>
+</article>
+<article class="post-preview">
+    <img src="assets/default.ico" alt="# 123">
+    <iframe class="blog-post-text-frame" title="Заголовок и текст поста" scrolling="no" srcdoc="<!DOCTYPE html><html lang=&quot;ru&quot;><head><meta charset=&quot;UTF-8&quot;><meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;><link rel=&quot;stylesheet&quot; href=&quot;../css/font.css&quot;><link rel=&quot;stylesheet&quot; href=&quot;&quot;><link rel=&quot;stylesheet&quot; href=&quot;css/post-iframe-content.css&quot;><link rel=&quot;stylesheet&quot; href=&quot;css/post-html-content.css&quot;></head><body><div class=&quot;blog-post-iframe-content&quot;><h2><a># 123</a></h2><br><div class=&quot;post-body&quot;><h1>Заголовок</h1><pre><code>echo &amp;quot;code&amp;quot;</code></pre><p><em>Курсив</em></p><p><strong>Жирный</strong></p></div><br><p class=&quot;post-date&quot;>28 мая 2026 г.</p><br></div><script src=&quot;js/post-iframe-content.js&quot;></script></body></html>"></iframe>
+</article>
+<article class="post-preview">
+    <video controls preload="metadata"><source src="assets/black-backhround.mp4" type="video/mp4">Ваш браузер не поддерживает видео.</video>
+    <h2><a><em>Последний пост</em></a></h2><br>
+    <p><strong>Жирный текст</strong></p><br>
+    <p class="post-date">День Месяц Год</p><br>
+</article>
+<article class="post-preview">
+    <img src="assets/default.ico" alt="ico">
+    <h2><a href="">Заголовок поста</a></h2><br>
+    <p>Описание (содержимое) поста</p><br>
+    <p class="post-date">Дата поста</p><br>
+</article>
+    </section>
+  </main>
+
+  <footer id="footer" data-duisdev-module="footer"></footer>
+
+  <script src="../js/include-modules.js" defer></script>
+  <script src="js/post-iframe-resize.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

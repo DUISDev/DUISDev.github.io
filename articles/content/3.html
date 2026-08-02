@@ -1,0 +1,426 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Справочник по Git</title><style>body{font-family:'Segoe UI',sans-serif;font-size:17px;line-height:1.7;color:#24292e;background:#fff;margin:0 auto;max-width:1100px;padding:40px 50px;text-align:center}h1,h2,h3{color:#24292e;margin-top:28px;margin-bottom:20px}h1{font-size:2.1em;border-bottom:2px solid #e1e4e8;padding-bottom:10px}h2{font-size:1.75em;border-bottom:1px solid #e1e4e8;padding-bottom:8px}h3{font-size:1.45em}p{margin-bottom:20px}a{color:#0366d6;text-decoration:none}a:hover{text-decoration:underline}code{font-family:monospace;padding:3px 6px;font-size:15px;background:#f6f8fa;border-radius:4px;color:#24292e}pre{background:#1e1e1e;border-radius:8px;padding:18px;overflow-x:auto;margin:20px 0}pre code{color:#d4d4d4;background:0 0;font-size:14px;padding:0}blockquote{padding:0 20px;color:#6a737d;border-left:4px solid #e1e4e8;font-style:italic;margin:20px 0}.center-list{display:inline-block;text-align:left;margin:0 auto 16px;list-style-position:inside}ul,ol{padding-left:0}li{text-align:center;margin:8px 0}table{border-collapse:collapse;width:100%;margin:20px auto}th,td{border:1px solid #e1e4e8;padding:10px 15px}th{background:#f6f8fa}.task{margin:10px 0;text-align:center}@media(max-width:768px){body{padding:20px;font-size:15px}}</style></head><body>
+<h1>Справочник по Git</h1>
+<p>Краткий гайд по основным командам Git: что они делают, как работать с коммитами и как полностью удалить коммит из истории.</p>
+<hr>
+<h2>Содержание</h2>
+<ol class='center-list'>
+<li><a href="#основные-понятия">Основные понятия</a></li>
+<li><a href="#настройка-и-инициализация">Настройка и инициализация</a></li>
+<li><a href="#ежедневные-команды">Ежедневные команды</a></li>
+<li><a href="#работа-с-ветками">Работа с ветками</a></li>
+<li><a href="#удалённые-репозитории">Удалённые репозитории</a></li>
+<li><a href="#просмотр-истории-и-откат-изменений">Просмотр истории и откат изменений</a></li>
+<li><a href="#гайд-как-сделать-коммит">Гайд: как сделать коммит</a></li>
+<li><a href="#как-полностью-удалить-коммит">Как полностью удалить коммит</a></li>
+<li><a href="#github">GitHub</a></li>
+<li><a href="#полезные-команды">Полезные команды</a></li>
+<li><a href="#частые-ошибки-и-советы">Частые ошибки и советы</a></li>
+</ol>
+<hr>
+<h2>Основные понятия</h2>
+<table><td>Термин</td><td>Описание</td></tr>
+<p>|--------|----------|</p>
+<table><td><strong>Рабочая директория</strong></td><td>Файлы на диске, с которыми вы работаете прямо сейчас</td></tr>
+<table><td><strong>Staging (индекс)</strong></td><td>Промежуточная область: сюда попадают изменения перед коммитом (<code>git add</code>)</td></tr>
+<table><td><strong>Коммит</strong></td><td>Снимок состояния проекта с сообщением, автором и датой</td></tr>
+<table><td><strong>Ветка (branch)</strong></td><td>Указатель на цепочку коммитов</td></tr>
+<table><td><strong>HEAD</strong></td><td>Текущая позиция в истории (обычно — последний коммит текущей ветки)</td></tr>
+<table><td><strong>Remote</strong></td><td>Удалённый репозиторий (GitHub, GitLab и т.д.)</td></tr>
+<p>Типичный цикл:</p>
+<pre><code>изменили файлы → git add → git commit → git push
+</code></pre>
+<hr>
+<h2>Настройка и инициализация</h2>
+<table><td>Команда</td><td>Назначение</td></tr>
+<p>|---------|------------|</p>
+<table><td><code>git init</code></td><td>Создать новый локальный репозиторий в текущей папке</td></tr>
+<table><td><code>git clone <url></code></td><td>Скопировать удалённый репозиторий на компьютер</td></tr>
+<table><td><code>git config user.name "Имя"</code></td><td>Задать имя автора коммитов (локально)</td></tr>
+<table><td><code>git config user.email "email@example.com"</code></td><td>Задать email автора коммитов</td></tr>
+<table><td><code>git config --global ...</code></td><td>Те же настройки, но для всех репозиториев пользователя</td></tr>
+<table><td><code>git config --list</code></td><td>Показать текущие настройки</td></tr>
+<p>Пример первоначальной настройки:</p>
+<pre><code>git config --global user.name &quot;Иван Иванов&quot;
+git config --global user.email &quot;ivan@example.com&quot;
+</code></pre>
+<hr>
+<h2>Ежедневные команды</h2>
+<table><td>Команда</td><td>Назначение</td></tr>
+<p>|---------|------------|</p>
+<table><td><code>git status</code></td><td>Показать состояние: изменённые, новые и проиндексированные файлы</td></tr>
+<table><td><code>git add <файл></code></td><td>Добавить конкретный файл в staging</td></tr>
+<table><td><code>git add .</code></td><td>Добавить все изменения в текущей папке и подпапках</td></tr>
+<table><td><code>git add -p</code></td><td>Интерактивно выбрать части изменений (hunks) для staging</td></tr>
+<table><td><code>git commit -m "сообщение"</code></td><td>Создать коммит с указанным сообщением</td></tr>
+<table><td><code>git commit -am "сообщение"</code></td><td>Добавить в коммит <strong>только уже отслеживаемые</strong> файлы и сразу закоммитить</td></tr>
+<table><td><code>git diff</code></td><td>Показать не проиндексированные изменения</td></tr>
+<table><td><code>git diff --staged</code></td><td>Показать изменения, уже добавленные в staging</td></tr>
+<table><td><code>git restore <файл></code></td><td>Отменить изменения в рабочей директории (до последнего коммита)</td></tr>
+<table><td><code>git restore --staged <файл></code></td><td>Убрать файл из staging, не трогая рабочую копию</td></tr>
+<table><td><code>git rm <файл></code></td><td>Удалить файл и зафиксировать удаление</td></tr>
+<table><td><code>git mv старый новый</code></td><td>Переименовать или переместить файл с фиксацией в Git</td></tr>
+<hr>
+<h2>Работа с ветками</h2>
+<table><td>Команда</td><td>Назначение</td></tr>
+<p>|---------|------------|</p>
+<table><td><code>git branch</code></td><td>Список локальных веток</td></tr>
+<table><td><code>git branch <имя></code></td><td>Создать новую ветку</td></tr>
+<table><td><code>git checkout <ветка></code></td><td>Переключиться на другую ветку</td></tr>
+<table><td><code>git switch <ветка></code></td><td>Современная альтернатива <code>checkout</code> для переключения веток</td></tr>
+<table><td><code>git switch -c <имя></code></td><td>Создать ветку и сразу переключиться на неё</td></tr>
+<table><td><code>git merge <ветка></code></td><td>Влить указанную ветку в текущую</td></tr>
+<table><td><code>git rebase <ветка></code></td><td>Перенести коммиты текущей ветки поверх другой</td></tr>
+<table><td><code>git branch -d <имя></code></td><td>Удалить ветку (если она уже слита)</td></tr>
+<table><td><code>git branch -D <имя></code></td><td>Принудительно удалить ветку</td></tr>
+<hr>
+<h2>Удалённые репозитории</h2>
+<table><td>Команда</td><td>Назначение</td></tr>
+<p>|---------|------------|</p>
+<table><td><code>git remote -v</code></td><td>Список удалённых репозиториев и их URL</td></tr>
+<table><td><code>git remote add origin <url></code></td><td>Привязать удалённый репозиторий с именем <code>origin</code></td></tr>
+<table><td><code>git fetch</code></td><td>Загрузить изменения с remote, <strong>не</strong> меняя локальные файлы</td></tr>
+<table><td><code>git pull</code></td><td><code>fetch</code> + слияние с текущей веткой</td></tr>
+<table><td><code>git push</code></td><td>Отправить локальные коммиты на remote</td></tr>
+<table><td><code>git push -u origin <ветка></code></td><td>Первый push ветки и привязка к upstream</td></tr>
+<table><td><code>git push origin --delete <ветка></code></td><td>Удалить ветку на remote</td></tr>
+<hr>
+<h2>Просмотр истории и откат изменений</h2>
+<table><td>Команда</td><td>Назначение</td></tr>
+<p>|---------|------------|</p>
+<table><td><code>git log</code></td><td>История коммитов</td></tr>
+<table><td><code>git log --oneline --graph</code></td><td>Компактная история с графом веток</td></tr>
+<table><td><code>git show <хеш></code></td><td>Детали конкретного коммита</td></tr>
+<table><td><code>git reset --soft HEAD~1</code></td><td>Отменить последний коммит, <strong>оставив изменения в staging</strong></td></tr>
+<table><td><code>git reset --mixed HEAD~1</code></td><td>Отменить коммит, изменения останутся в рабочей директории (не в staging)</td></tr>
+<table><td><code>git reset --hard HEAD~1</code></td><td>Отменить коммит и <strong>удалить все его изменения</strong> (осторожно!)</td></tr>
+<table><td><code>git revert <хеш></code></td><td>Создать новый коммит, отменяющий указанный (без переписывания истории)</td></tr>
+<table><td><code>git stash</code></td><td>Временно спрятать незакоммиченные изменения</td></tr>
+<table><td><code>git stash pop</code></td><td>Вернуть спрятанные изменения</td></tr>
+<hr>
+<h2>Гайд: как сделать коммит</h2>
+<h3>Шаг 1. Проверить состояние</h3>
+<pre><code>git status
+</code></pre>
+<p>Убедитесь, что видите нужные файлы в разделах <em>Changes not staged</em> или <em>Untracked files</em>.</p>
+<h3>Шаг 2. Добавить файлы в staging</h3>
+<pre><code># один файл
+git add src/app.js
+
+# все изменения
+git add .
+
+# только часть изменений в файле
+git add -p
+</code></pre>
+<h3>Шаг 3. Проверить, что попадёт в коммит</h3>
+<pre><code>git diff --staged
+</code></pre>
+<h3>Шаг 4. Создать коммит</h3>
+<pre><code>git commit -m &quot;Краткое описание: что и зачем изменено&quot;
+</code></pre>
+<p><strong>Хорошее сообщение коммита:</strong></p>
+<ul class='center-list'>
+<li>в повелительном наклонении: «Добавить авторизацию», а не «Добавил авторизацию»;</li>
+<li>одна логическая задача — один коммит;</li>
+<li>первая строка — до ~50–72 символов; при необходимости добавьте пустую строку и подробное описание.</li>
+</ul>
+<p>Пример с многострочным сообщением:</p>
+<pre><code>git commit -m &quot;$(cat &lt;&lt;&#39;EOF&#39;
+Исправить падение при пустом списке пользователей
+
+Добавлена проверка на пустой массив перед рендером таблицы.
+EOF
+)&quot;
+</code></pre>
+<h3>Шаг 5. Отправить на remote (если нужно)</h3>
+<pre><code>git push
+# или при первом push ветки:
+git push -u origin main
+</code></pre>
+<h3>Полный пример</h3>
+<pre><code>git status
+git add .
+git diff --staged
+git commit -m &quot;Обновить README: добавить инструкцию по установке&quot;
+git push
+</code></pre>
+<hr>
+<h2>Как полностью удалить коммит</h2>
+<p>«Полностью удалить» может означать разное — выберите подходящий сценарий.</p>
+<h3>Сценарий A: коммит ещё <strong>не отправлен</strong> на remote (<code>git push</code> не делали)</h3>
+<h4>A1. Удалить последний коммит, сохранив изменения в файлах</h4>
+<pre><code># изменения останутся проиндексированными (в staging)
+git reset --soft HEAD~1
+
+# изменения останутся в файлах, но не в staging (по умолчанию)
+git reset HEAD~1
+</code></pre>
+<h4>A2. Удалить последний коммит <strong>и все его изменения</strong></h4>
+<pre><code>git reset --hard HEAD~1
+</code></pre>
+<blockquote><strong>Внимание:</strong> <code>--hard</code> безвозвратно удаляет изменения из рабочей директории.</blockquote>
+<h4>A3. Удалить несколько последних коммитов</h4>
+<pre><code># удалить последние 3 коммита, сохранив изменения в файлах
+git reset --soft HEAD~3
+
+# удалить последние 3 коммита вместе с изменениями
+git reset --hard HEAD~3
+</code></pre>
+<h4>A4. Удалить коммит не с конца истории (переписать историю)</h4>
+<pre><code># интерактивный rebase: замените N на число коммитов «назад» от HEAD
+git rebase -i HEAD~N
+</code></pre>
+<p>В открывшемся редакторе:</p>
+<ul class='center-list'>
+<li>удалите строку с ненужным коммитом, <strong>или</strong></li>
+<li>замените <code>pick</code> на <code>drop</code> для этого коммита.</li>
+</ul>
+<p>Сохраните и закройте редактор.</p>
+<hr>
+<h3>Сценарий B: коммит <strong>уже отправлен</strong> на remote</h3>
+<p>Если другие люди могли уже скачать этот коммит, <strong>не переписывайте историю</strong> без согласования. Безопасный способ:</p>
+<pre><code>git revert &lt;хеш_коммита&gt;
+git push
+</code></pre>
+<p>Это создаст <strong>новый</strong> коммит, который отменяет изменения старого. История остаётся линейной и предсказуемой.</p>
+<h4>Если коммит нужно именно стереть из истории (force push)</h4>
+<p>Используйте только если вы уверены, что никто не опирается на эту историю:</p>
+<pre><code># локально удалить последний коммит
+git reset --hard HEAD~1
+
+# перезаписать remote (опасно!)
+git push --force-with-lease
+</code></pre>
+<p><code>--force-with-lease</code> безопаснее обычного <code>--force</code>: push не пройдёт, если на remote появились новые коммиты, которых у вас нет.</p>
+<hr>
+<h3>Сценарий C: удалить коммит, но оставить файлы как были <strong>до</strong> него</h3>
+<pre><code>git reset --hard HEAD~1
+</code></pre>
+<p>Или откатиться к конкретному коммиту:</p>
+<pre><code>git reset --hard &lt;хеш_нужного_коммита&gt;
+</code></pre>
+<hr>
+<h3>Сценарий D: «удалить» коммит из истории, но сохранить его изменения как новый коммит</h3>
+<pre><code>git revert &lt;хеш&gt;
+</code></pre>
+<p>Или через rebase — «склеить» (squash) несколько коммитов в один:</p>
+<pre><code>git rebase -i HEAD~3
+# замените pick на squash (s) у коммитов, которые нужно объединить
+</code></pre>
+<hr>
+<h3>Сводная таблица</h3>
+<table><td>Ситуация</td><td>Команда</td><td>Изменения в файлах</td></tr>
+<p>|----------|---------|-------------------|</p>
+<table><td>Отменить последний коммит, сохранить в staging</td><td><code>git reset --soft HEAD~1</code></td><td>Сохраняются</td></tr>
+<table><td>Отменить коммит, оставить в рабочей папке</td><td><code>git reset HEAD~1</code></td><td>Сохраняются</td></tr>
+<table><td>Полностью убрать коммит и изменения</td><td><code>git reset --hard HEAD~1</code></td><td><strong>Удаляются</strong></td></tr>
+<table><td>Отменить уже запушенный коммит (безопасно)</td><td><code>git revert <хеш></code></td><td>Создаётся обратный коммит</td></tr>
+<table><td>Переписать историю на remote</td><td><code>git reset --hard ...</code> + <code>git push --force-with-lease</code></td><td>Зависит от reset</td></tr>
+<hr>
+<h2>GitHub</h2>
+<p>Git — система контроля версий. <strong>GitHub</strong> — облачный сервис для хранения Git-репозиториев и совместной работы: веб-интерфейс, pull request'ы, issues, CI/CD и т.д. Аналогичные платформы — GitLab, Bitbucket; принципы ниже в большинстве случаев те же.</p>
+<h3>Основные сущности GitHub</h3>
+<table><td>Сущность</td><td>Описание</td></tr>
+<p>|----------|----------|</p>
+<table><td><strong>Repository (repo)</strong></td><td>Проект на GitHub: код, история коммитов, ветки, issues</td></tr>
+<table><td><strong>Owner</strong></td><td>Пользователь или организация, которой принадлежит репозиторий</td></tr>
+<table><td><strong>Fork</strong></td><td>Ваша копия чужого репозитория в вашем аккаунте</td></tr>
+<table><td><strong>Clone</strong></td><td>Локальная копия репозитория на компьютере</td></tr>
+<table><td><strong>Branch</strong></td><td>Ветка в репозитории (на GitHub отображается так же, как в Git)</td></tr>
+<table><td><strong>Pull Request (PR)</strong></td><td>Запрос на слияние изменений из одной ветки в другую; место для обсуждения и ревью</td></tr>
+<table><td><strong>Issue</strong></td><td>Задача, баг или предложение; можно привязать к PR</td></tr>
+<table><td><strong>Release</strong></td><td>Стабильная версия проекта, часто с тегом и архивом исходников</td></tr>
+<table><td><strong>Actions</strong></td><td>Встроенный CI/CD: автоматические проверки и деплой по событиям (push, PR и др.)</td></tr>
+<h3>Создание и клонирование репозитория</h3>
+<p><strong>На GitHub (через сайт):</strong></p>
+<ol class='center-list'>
+<li>Кнопка <strong>New repository</strong> → имя, видимость (public/private), опционально README и <code>.gitignore</code>.</li>
+<li>После создания GitHub покажет команды для подключения.</li>
+</ol>
+<p><strong>Локально — новый проект → GitHub:</strong></p>
+<pre><code>git init
+git add .
+git commit -m &quot;Initial commit&quot;
+git branch -M main
+git remote add origin https://github.com/USER/REPO.git
+git push -u origin main
+</code></pre>
+<p><strong>Клонирование существующего репозитория:</strong></p>
+<pre><code># HTTPS
+git clone https://github.com/USER/REPO.git
+
+# SSH
+git clone git@github.com:USER/REPO.git
+</code></pre>
+<table><td>Способ</td><td>URL</td><td>Аутентификация</td></tr>
+<p>|--------|-----|----------------|</p>
+<table><td><strong>HTTPS</strong></td><td><code>https://github.com/USER/REPO.git</code></td><td>Логин + <a href="https://github.com/settings/tokens">Personal Access Token (PAT)</a> (пароль аккаунта для Git не используется)</td></tr>
+<table><td><strong>SSH</strong></td><td><code>git@github.com:USER/REPO.git</code></td><td>SSH-ключ, добавленный в <a href="https://github.com/settings/keys">настройках GitHub</a></td></tr>
+<p>Генерация SSH-ключа (если ещё нет):</p>
+<pre><code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;
+cat ~/.ssh/id_ed25519.pub   # скопировать в GitHub → Settings → SSH keys
+ssh -T git@github.com       # проверка подключения
+</code></pre>
+<h3>Типовые сценарии работы</h3>
+<h4>Прямой доступ к репозиторию (вы — collaborator или владелец)</h4>
+<pre><code>git switch -c feature/my-change    # новая ветка
+# ... правки ...
+git add .
+git commit -m &quot;Описание изменений&quot;
+git push -u origin feature/my-change
+</code></pre>
+<p>На GitHub: <strong>Compare & pull request</strong> → создать PR → после ревью <strong>Merge</strong>.</p>
+<h4>Fork + Pull Request (вклад в чужой проект)</h4>
+<ol class='center-list'>
+<li>На странице репозитория — <strong>Fork</strong>.</li>
+<li>Клонировать <strong>свой</strong> fork, не оригинал:</li>
+</ol>
+<pre><code>git clone https://github.com/YOUR_USER/REPO.git
+cd REPO
+git remote add upstream https://github.com/ORIGINAL_USER/REPO.git
+</code></pre>
+<ol class='center-list'>
+<li>Перед новой задачей синхронизироваться с upstream:</li>
+</ol>
+<pre><code>git fetch upstream
+git switch main
+git merge upstream/main
+git push origin main
+</code></pre>
+<ol class='center-list'>
+<li>Ветка → коммиты → push в <strong>свой</strong> fork → PR из fork в <strong>upstream</strong>.</li>
+</ol>
+<h3>Pull Request: что это и как устроен</h3>
+<p>PR — не команда Git, а функция GitHub. Вы предлагаете: «влейте мои коммиты из ветки A в ветку B».</p>
+<p><strong>Типичный цикл PR:</strong></p>
+<ol class='center-list'>
+<li>Создать ветку и запушить её.</li>
+<li>На GitHub: <strong>Pull requests → New pull request</strong>.</li>
+<li>Выбрать <strong>base</strong> (куда вливаем, обычно <code>main</code>) и <strong>compare</strong> (откуда, ваша ветка).</li>
+<li>Заполнить заголовок и описание: что сделано, зачем, как проверить.</li>
+<li>Дождаться ревью и CI (если настроен).</li>
+<li><strong>Merge</strong> одним из способов:</li>
+</ol>
+<ul class='center-list'>
+<li><strong>Merge commit</strong> — сохраняет все коммиты ветки как есть;</li>
+<li><strong>Squash and merge</strong> — все коммиты ветки сжимаются в один;</li>
+<li><strong>Rebase and merge</strong> — коммиты переносятся линейно поверх base.</li>
+</ul>
+<p>После merge ветку-источник обычно удаляют (кнопка на GitHub или локально):</p>
+<pre><code>git switch main
+git pull
+git branch -d feature/my-change
+git push origin --delete feature/my-change   # удалить на remote
+</code></pre>
+<h3>Issues</h3>
+<p>Issues — трекер задач внутри репозитория.</p>
+<table><td>Действие</td><td>Где</td></tr>
+<p>|----------|-----|</p>
+<table><td>Создать issue</td><td><strong>Issues → New issue</strong></td></tr>
+<table><td>Привязать к PR</td><td>В описании PR: <code>Fixes #42</code> или <code>Closes #42</code> — при merge PR issue закроется автоматически</td></tr>
+<table><td>Метки, milestone, assignee</td><td>Фильтрация и планирование на странице issue</td></tr>
+<h3>Releases и теги</h3>
+<p>Теги в Git отмечают конкретный коммит (часто версию). Release на GitHub — тег + описание + опционально бинарные файлы.</p>
+<pre><code>git tag -a v1.0.0 -m &quot;Release 1.0.0&quot;
+git push origin v1.0.0
+</code></pre>
+<p>На GitHub: <strong>Releases → Draft a new release</strong> → выбрать тег, описать изменения.</p>
+<h3>GitHub Actions (кратко)</h3>
+<p>Файлы workflow в <code>.github/workflows/*.yml</code> задают автоматизацию: тесты, линтеры, сборка, деплой.</p>
+<p>Типичные триггеры:</p>
+<ul class='center-list'>
+<li><code>push</code> — при каждом push;</li>
+<li><code>pull_request</code> — при открытии/обновлении PR;</li>
+<li><code>schedule</code> — по расписанию (cron).</li>
+</ul>
+<p>Статус проверок виден в PR (зелёная/красная галочка). Без прохождения CI merge иногда блокируется правилами репозитория (<strong>branch protection</strong>).</p>
+<h3>Права и настройки репозитория</h3>
+<table><td>Роль / настройка</td><td>Возможности</td></tr>
+<p>|------------------|-------------|</p>
+<table><td><strong>Read</strong></td><td>Клонирование, просмотр</td></tr>
+<table><td><strong>Write</strong></td><td>Push в репозиторий (если не включена защита веток)</td></tr>
+<table><td><strong>Maintain / Admin</strong></td><td>Настройки, правила, удаление репо</td></tr>
+<table><td><strong>Branch protection</strong></td><td>Требовать PR, ревью, прохождение CI перед merge в <code>main</code></td></tr>
+<table><td><strong>CODEOWNERS</strong></td><td>Автоназначение ревьюеров по путям файлов (<code>.github/CODEOWNERS</code>)</td></tr>
+<h3>Команда <code>gh</code> (GitHub CLI)</h3>
+<p>Официальная утилита для работы с GitHub из терминала. Установка: <a href="https://cli.github.com/">cli.github.com</a>.</p>
+<pre><code>gh auth login                  # авторизация
+gh repo clone USER/REPO        # клонировать
+gh repo create                 # создать репозиторий
+gh pr create                   # создать PR из текущей ветки
+gh pr list                     # список PR
+gh pr checkout 123             # переключиться на ветку PR #123
+gh issue list                  # список issues
+gh release create v1.0.0       # создать release
+</code></pre>
+<p><code>gh</code> необязателен — всё то же можно сделать через сайт и обычный <code>git</code>.</p>
+<h3>Частые операции на GitHub</h3>
+<table><td>Задача</td><td>Git / GitHub</td></tr>
+<p>|--------|--------------|</p>
+<table><td>Обновить локальную <code>main</code></td><td><code>git pull origin main</code></td></tr>
+<table><td>Посмотреть remote</td><td><code>git remote -v</code></td></tr>
+<table><td>Сменить URL remote</td><td><code>git remote set-url origin <новый-url></code></td></tr>
+<table><td>Открыть репозиторий в браузере</td><td><code>gh repo view --web</code> или URL на github.com</td></tr>
+<table><td>Скачать архив без Git</td><td><strong>Code → Download ZIP</strong> на странице репо</td></tr>
+<table><td>Посмотреть diff в PR</td><td>Вкладка <strong>Files changed</strong></td></tr>
+<table><td>Обсудить строку кода</td><td><strong>Review → Add single comment</strong> или <strong>Start a review</strong></td></tr>
+<h3>Безопасность на GitHub</h3>
+<ol class='center-list'>
+<li><strong>Не храните секреты в коде</strong> — API-ключи, пароли, токены. Используйте <a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions">GitHub Secrets</a> для Actions и переменные окружения локально.</li>
+<li><strong>PAT</strong> — выдавайте минимально необходимые права и срок действия.</li>
+<li><strong>Dependabot / security alerts</strong> — GitHub предупреждает об уязвимых зависимостях (если включено).</li>
+<li>Если секрет случайно попал в коммит — считайте его скомпрометированным: отзовите ключ и удалите из истории (сложная операция; лучше ротация секрета).</li>
+</ol>
+<h3>GitHub vs Git: что где делать</h3>
+<table><td>Действие</td><td>Инструмент</td></tr>
+<p>|----------|------------|</p>
+<table><td>Коммиты, ветки, merge локально</td><td>Git</td></tr>
+<table><td>Хранение репозитория, PR, issues, CI</td><td>GitHub</td></tr>
+<table><td><code>git push</code> / <code>git pull</code></td><td>Мост между локальным Git и GitHub</td></tr>
+<table><td>Code review, обсуждение</td><td>GitHub (в PR)</td></tr>
+<table><td>Откат коммита локально</td><td>Git (<code>reset</code>, <code>revert</code>)</td></tr>
+<table><td>Защита главной ветки, правила merge</td><td>GitHub (настройки репозитория)</td></tr>
+<hr>
+<h2>Полезные команды</h2>
+<table><td>Команда</td><td>Назначение</td></tr>
+<p>|---------|------------|</p>
+<table><td><code>git blame <файл></code></td><td>Кто и когда менял каждую строку</td></tr>
+<table><td><code>git tag v1.0.0</code></td><td>Поставить метку на текущий коммит</td></tr>
+<table><td><code>git tag -a v1.0.0 -m "Релиз 1.0"</code></td><td>Аннотированный тег</td></tr>
+<table><td><code>git cherry-pick <хеш></code></td><td>Перенести один коммит в текущую ветку</td></tr>
+<table><td><code>git clean -fd</code></td><td>Удалить неотслеживаемые файлы и папки</td></tr>
+<table><td><code>git reflog</code></td><td>Журнал всех перемещений HEAD (спасает после <code>--hard</code>)</td></tr>
+<table><td><code>git fsck</code></td><td>Проверка целостности репозитория</td></tr>
+<h3>Восстановление «потерянного» коммита через reflog</h3>
+<p>Если случайно сделали <code>reset --hard</code>:</p>
+<pre><code>git reflog
+# найдите хеш нужного состояния, например abc1234
+git reset --hard abc1234
+</code></pre>
+<hr>
+<h2>Частые ошибки и советы</h2>
+<ol class='center-list'>
+<li><strong>Перед <code>--hard</code> и <code>--force</code></strong> — убедитесь, что важные изменения сохранены или запушены в другую ветку.</li>
+<li><strong>Не коммитьте секреты</strong> — <code>.env</code>, ключи, пароли. Добавьте их в <code>.gitignore</code>.</li>
+<li><strong>Делайте <code>git pull</code> перед <code>git push</code></strong>, если работаете в общей ветке.</li>
+<li><strong>Используйте ветки</strong> для задач и фич, а не коммитьте всё в <code>main</code>.</li>
+<li><strong><code>.gitignore</code></strong> — файл со списком того, что Git должен игнорировать (сборки, зависимости, локальные конфиги).</li>
+<li>При конфликте слияния Git помечает файлы маркерами <code><<<<<<<</code>, <code>=======</code>, <code>>>>>>>></code>. Исправьте вручную, затем:</li>
+</ol>
+<pre><code>git add &lt;файл_с_конфликтом&gt;
+git commit
+</code></pre>
+<hr>
+<h2>Шпаргалка: минимальный набор для ежедневной работы</h2>
+<pre><code>git status              # что изменилось
+git add .               # подготовить к коммиту
+git commit -m &quot;...&quot;     # зафиксировать
+git pull                # получить чужие изменения
+git push                # отправить свои
+git log --oneline -10   # последние 10 коммитов
+git branch              # список веток
+git switch -c feature   # новая ветка для задачи
+</code></pre>
+<hr>
+<p><em>Документ создан как локальный справочник. Официальная документация: <a href="https://git-scm.com/doc">git-scm.com/doc</a>, <a href="https://docs.github.com">docs.github.com</a>.</em></p>
+</body></html>

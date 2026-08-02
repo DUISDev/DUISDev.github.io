@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как править сайт</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Как править сайт</h1>
+      <p>Краткий чеклист для разработчиков: что менять и где не трогать.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Меню и подвал</h2>
+        <p>Только <code>modules/menu.html</code> и <code>modules/footer.html</code>. После правки обновите страницу — модуль подгрузится через <code>include-modules.js</code>.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Общий вид</h2>
+        <p>Цвета и переменные — в <code>css/page_home.css</code> (<code>:root</code>). Шрифты — <code>css/font.css</code>. Меню — <code>css/menu.css</code>.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Разделы</h2>
+        <table class="doc-table">
+          <thead><tr><th>Задача</th><th>Где править</th></tr></thead>
+          <tbody>
+            <tr><td>Новое видео</td><td><code>videoplatform/manifest.json</code> + файл в <code>videos/</code></td></tr>
+            <tr><td>Новая статья</td><td><code>articles/content/</code> + <code>articles/manifest.json</code></td></tr>
+            <tr><td>Новый пост блога</td><td><code>blog/posts/</code> + сборщик <code>build-index.java</code></td></tr>
+            <tr><td>Новая страница docs</td><td><code>docs/content/</code> + <code>docs/manifest.json</code></td></tr>
+            <tr><td>Карточка на главной</td><td><code>index.html</code> или <code>modules/features.html</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="article-entry">
+        <h2>Не редактировать вручную</h2>
+        <ul class="doc-list">
+          <li><code>blog/index.html</code> и <code>blog/posts/postN.html</code> — только через сборщик</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

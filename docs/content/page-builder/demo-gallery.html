@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея демонстраций</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Галерея</h1>
+      <p>Все живые демонстрации Page Builder в одном месте — темы, цвета, размеры, анимации и класс <code>custom</code>.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Обзор</h2>
+        <p>Каждый раздел документации содержит iframe с рабочим примером. Ниже — сводная галерея и ссылки на отдельные страницы.</p>
+      </div>
+
+      <div class="doc-demo">
+        <p class="doc-demo__label">Комбинированная демонстрация</p>
+        <iframe class="doc-demo__frame article-frame" src="demos/gallery.html" title="Галерея Page Builder"></iframe>
+      </div>
+
+      <div class="article-entry">
+        <h2>Разделы с демо</h2>
+        <table class="doc-table">
+          <thead><tr><th>Страница</th><th>Что показывает</th></tr></thead>
+          <tbody>
+            <tr><td><code>themes.html</code></td><td>Темы оформления: light, dark, Dracula, Nord</td></tr>
+            <tr><td><code>colors.html</code></td><td>Цвета фона и текста</td></tr>
+            <tr><td><code>sizes.html</code></td><td>Классы <code>size-Npx</code></td></tr>
+            <tr><td><code>properties.html</code></td><td>Рамки, контейнеры, input</td></tr>
+            <tr><td><code>custom-class.html</code></td><td>Стиль DUISDev для элементов</td></tr>
+            <tr><td><code>animations-loading.html</code></td><td>Появление при загрузке</td></tr>
+            <tr><td><code>animations-constant.html</code></td><td>Бесконечные эффекты</td></tr>
+            <tr><td><code>animations-hover.html</code></td><td>Эффекты при наведении</td></tr>
+            <tr><td><code>setup.html</code></td><td>Минимальная страница с loader.css</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="article-entry">
+        <h2>Отдельные iframe-демо</h2>
+        <div class="doc-demo-grid">
+          <span class="doc-chip">demos/themes.html</span>
+          <span class="doc-chip">demos/colors.html</span>
+          <span class="doc-chip">demos/sizes.html</span>
+          <span class="doc-chip">demos/properties.html</span>
+          <span class="doc-chip">demos/custom-class.html</span>
+          <span class="doc-chip">demos/animations-loading.html</span>
+          <span class="doc-chip">demos/animations-constant.html</span>
+          <span class="doc-chip">demos/animations-hover.html</span>
+          <span class="doc-chip">demos/minimal.html</span>
+        </div>
+      </div>
+
+      <p class="article-content__note">Файлы демо лежат в <code>docs/content/page-builder/demos/</code> и подключают <code>dependencies/PageBuilder/css/loader.css</code>.</p>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

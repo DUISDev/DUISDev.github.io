@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статьи</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Статьи</h1>
+      <p>Каталог гайдов по категориям с просмотром в iframe.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Файлы</h2>
+        <ul class="doc-list">
+          <li><code>articles/index.html</code> — каталог</li>
+          <li><code>articles/manifest.json</code> — категории и список статей</li>
+          <li><code>articles/content/*.html</code> — содержимое статей</li>
+          <li><code>js/articles-page.js</code>, <code>js/article.js</code> — логика и высота iframe</li>
+          <li><code>css/articles-page.css</code>, <code>css/article-content.css</code> — оформление</li>
+        </ul>
+      </div>
+      <div class="article-entry">
+        <h2>Как добавить статью</h2>
+        <p>1. Положите HTML в <code>articles/content/</code>.<br>2. Добавьте запись в категорию в <code>manifest.json</code>:</p>
+        <pre><code>{ "title": "Название", "file": "3.html" }</code></pre>
+        <p>Id создаётся автоматически из имени файла.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

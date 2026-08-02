@@ -1,0 +1,55 @@
+{
+  "authors": [
+    {
+      "name": "DUISDev",
+      "handle": "@duisdev",
+      "avatarColor": "#0055ff",
+      "description": "Официальный канал команды DUISDev: уроки, обзоры и стримы.",
+      "links": {
+        "vk": "https://vkvideo.ru/@club232939708"
+      }
+    },
+    {
+      "name": "Glass World",
+      "handle": "@glass_world",
+      "avatarColor": "#00b4d8",
+      "description": "Авторские материалы и эксперименты с технологиями.",
+      "links": {
+        "telegram": "https://t.me/Glass_World_1325"
+      }
+    }
+  ],
+  "playlists": [
+    {
+      "title": "С чего начать",
+      "description": "Вводные ролики для новых зрителей DUISDev.",
+      "author": "@duisdev",
+      "videos": ["Чёрный экран"]
+    },
+    {
+      "title": "Инструменты разработки",
+      "description": "Page Builder, блог, статьи и рабочие процессы команды.",
+      "author": "@duisdev",
+      "videos": []
+    },
+    {
+      "title": "Стримы и записи",
+      "description": "Прямые эфиры и их записи.",
+      "author": "@glass_world",
+      "videos": []
+    }
+  ],
+  "videos": [
+    {
+      "title": "Чёрный экран",
+      "description": "Тестовый ролик с чёрным фоном — воспроизводится прямо на видеоплатформе DUISDev.",
+      "author": "@duisdev",
+      "playlists": ["С чего начать"],
+      "thumbnailHue": 225,
+      "source": {
+        "type": "file",
+        "url": "videos/black-backhround.mp4"
+      }
+    }
+  ]
+}

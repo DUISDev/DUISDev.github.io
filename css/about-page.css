@@ -1,0 +1,147 @@
+/* Страница "О нас" */
+
+.about-main {
+  width: min(100%, 76rem);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3rem) 1.25rem 4rem;
+}
+
+.about-hero {
+  min-height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 4rem) 0;
+}
+
+.about-hero__content,
+.about-card {
+  background: var(--surface);
+  border: var(--pb-border);
+  border-radius: 16px;
+  box-shadow: var(--pb-glow);
+}
+
+.about-hero__content {
+  width: min(100%, 48rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.about-eyebrow {
+  margin: 0 0 1rem;
+  color: var(--brand-blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-hero h1,
+.about-card h2 {
+  color: var(--brand-deep);
+}
+
+.about-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+.about-hero p,
+.about-card p,
+.about-list {
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.about-hero p {
+  margin: 0 auto;
+  max-width: 42rem;
+  font-size: clamp(1rem, 2vw, 1.18rem);
+}
+
+.about-section {
+  margin-top: 1.25rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.about-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.about-split__stack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.about-card {
+  padding: 1.5rem;
+}
+
+.about-card--wide {
+  width: 100%;
+}
+
+.about-card h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+}
+
+.about-card p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.about-checklist {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+}
+
+.about-checklist li {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.about-checklist li + li {
+  margin-top: 0.45rem;
+}
+
+.about-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+}
+
+.about-list li + li {
+  margin-top: 0.75rem;
+}
+
+.about-list__title {
+  margin: 0 0 0.25rem;
+  color: #263b78;
+  font-size: 1.04rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 107, 255, 0.45);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+@media (max-width: 860px) {
+  .about-grid,
+  .about-split {
+    grid-template-columns: 1fr;
+  }
+}

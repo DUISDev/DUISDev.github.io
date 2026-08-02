@@ -1,0 +1,80 @@
+{
+  "docs": [
+    {
+      "id": "duisdev",
+      "title": "DUISDev",
+      "description": "Документация для разработчиков: структура сайта, разделы, модули и видеоплатформа.",
+      "sections": [
+        {
+          "title": "Начало",
+          "pages": [
+            { "id": "about", "title": "О проекте", "file": "duisdev/about.html" },
+            { "id": "structure", "title": "Структура проекта", "file": "duisdev/structure.html" },
+            { "id": "modules", "title": "Модули и include", "file": "duisdev/modules.html" }
+          ]
+        },
+        {
+          "title": "Разделы сайта",
+          "pages": [
+            { "id": "sections-home", "title": "Главная", "file": "duisdev/sections-home.html" },
+            { "id": "sections-blog", "title": "Блог", "file": "duisdev/sections-blog.html" },
+            { "id": "sections-articles", "title": "Статьи", "file": "duisdev/sections-articles.html" },
+            { "id": "sections-docs", "title": "Документация", "file": "duisdev/sections-docs.html" }
+          ]
+        },
+        {
+          "title": "Видеоплатформа",
+          "pages": [
+            { "id": "videoplatform", "title": "Обзор", "file": "duisdev/videoplatform.html" },
+            { "id": "videoplatform-manifest", "title": "manifest.json", "file": "duisdev/videoplatform-manifest.html" }
+          ]
+        },
+        {
+          "title": "Для разработчиков",
+          "pages": [
+            { "id": "editing", "title": "Как править сайт", "file": "duisdev/editing.html" },
+            { "id": "local-server", "title": "Локальный запуск", "file": "duisdev/local-server.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "page-builder",
+      "title": "Page Builder",
+      "description": "Полное руководство по CSS-фреймворку DUISDev с живыми демонстрациями.",
+      "sections": [
+        {
+          "title": "Начало",
+          "pages": [
+            { "id": "intro", "title": "Введение", "file": "page-builder/intro.html" },
+            { "id": "setup", "title": "Подключение", "file": "page-builder/setup.html" }
+          ]
+        },
+        {
+          "title": "Стили",
+          "pages": [
+            { "id": "themes", "title": "Темы", "file": "page-builder/themes.html" },
+            { "id": "colors", "title": "Цвета", "file": "page-builder/colors.html" },
+            { "id": "sizes", "title": "Размеры", "file": "page-builder/sizes.html" },
+            { "id": "properties", "title": "Свойства", "file": "page-builder/properties.html" },
+            { "id": "custom-class", "title": "Класс custom", "file": "page-builder/custom-class.html" }
+          ]
+        },
+        {
+          "title": "Анимации",
+          "pages": [
+            { "id": "animations-loading", "title": "При загрузке", "file": "page-builder/animations-loading.html" },
+            { "id": "animations-constant", "title": "Постоянные", "file": "page-builder/animations-constant.html" },
+            { "id": "animations-hover", "title": "При наведении", "file": "page-builder/animations-hover.html" }
+          ]
+        },
+        {
+          "title": "Демонстрации",
+          "pages": [
+            { "id": "demo-gallery", "title": "Галерея", "file": "page-builder/demo-gallery.html" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Builder — введение</title>
+  <link rel="stylesheet" href="../../../css/font.css">
+  <link rel="stylesheet" href="../../../css/article-content.css">
+  <link rel="stylesheet" href="../../../css/docs-content.css">
+</head>
+<body>
+  <article class="article-content">
+    <header class="article-content__header">
+      <h1>Page Builder</h1>
+      <p>CSS-фреймворк DUISDev для быстрой вёрстки: темы, цвета, размеры, анимации и стиль <code>custom</code>.</p>
+    </header>
+    <div class="article-content__body">
+      <div class="article-entry">
+        <h2>Идея</h2>
+        <p>Набор готовых utility-классов вместо написания CSS с нуля. Подключите один файл <code>loader.css</code> — он импортирует все модули.</p>
+      </div>
+      <div class="article-entry">
+        <h2>Где лежит</h2>
+        <code class="doc-path">dependencies/PageBuilder/</code>
+        <ul class="doc-list">
+          <li><code>css/loader.css</code> — точка входа</li>
+          <li><code>css/colors/</code> — фон и текст</li>
+          <li><code>css/elements/</code> — темы, размеры, свойства, custom</li>
+          <li><code>css/animations/</code> — loading, constant, hover</li>
+          <li><code>index.html</code> — пример страницы</li>
+        </ul>
+      </div>
+      <div class="article-entry">
+        <h2>Имена классов</h2>
+        <p>Используйте <strong>kebab-case</strong>: <code>loading-fade-in</code>, <code>hover-pulse-animation</code>, <code>light-theme</code>. Несколько классов комбинируются на одном элементе.</p>
+      </div>
+    </div>
+  </article>
+  <script src="../../../js/article-content.js" defer></script>
+</body>
+</html>

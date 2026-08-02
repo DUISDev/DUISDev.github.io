@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="X-Coin.ico">
+<title>Название статьи — День/Месяц/Год — MineProG</title>
+<link rel="stylesheet" href="css/bootstrap.css"> <!--Подключаем CSS-->
+<script src="js/bootstrap.bundle.js" defer></script> <!--Подключаем JS-->
+<script src="js/popper.min.js"></script> <!--Подключаем Popper-->
+<link rel="stylesheet" href="css/page_downloads.css">
+</head>
+<body style="
+    background-image: url(images/BC-gradient.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    ">
+
+
+<style>
+  @font-face {
+  font-family: 'Minecraft';
+  src: url('fonts/minecraft.ttf') format('truetype'),
+  url('fonts/minecraft.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Minecraft', Arial, sans-serif;
+  font-size: 85%;
+}
+</style>
+
+
+<ul class="nav nav-pills justify-content-center" style="background: linear-gradient(rgb(0, 255, 234), blue); padding-top: 1%; padding-bottom: 1%;">
+    <a class="navbar-brand" href="index.html" target="_self">
+      <img src="images/logotype.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top"></a><span style="font-size: 250%;">MineProG</span>
+</ul>
+
+<!--Навигационное Меню-->
+<ul class="nav nav-pills justify-content-center" style="background: linear-gradient(blue, rgb(0, 255, 234)); padding-top: 1%; padding-bottom: 1%;">
+  <li class="nav-item">
+    <a class="nav-link active" style="margin-left: 0.3em; margin-right: 0.3em" aria-current="page" href="index.html">На главную</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" style="margin-left: 0.3em; margin-right: 0.3em" aria-current="page" href="articles.html">К статьям</a>
+  </li>
+</ul>
+<!--Конец Навигационного Меню-->
+
+<!-- Start "Директория" -->
+<nav aria-label="breadcrumb" style="background-color: aqua;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">MineProG</a></li>
+    <li class="breadcrumb-item"><a href="articles.html">Статьи</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Название статьи</li>
+  </ol>
+</nav>
+<!-- End "Директория" -->
+
+<!--Навигация-->
+<!-- // Нужно для статей (Не используется) -->
+<!-- <nav aria-label="breadcrumb" style="background-color: aqua;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav> -->
+<!--Конец навигации-->
+
+
+
+<!--Main-->
+
+<!--Начало галереи-->
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!--Шаблон-->
+    <!-- <div class="carousel-item active"> //Active в class="" — значит, что этот слайд будет первым при перезапуске страницы. В последующих слайдах active нужно удалить
+      <img src="images/Картинка" class="d-block w-100" style="width: 200px; height: 80lvh;" alt="...">
+      <div class="carousel-caption d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div> -->
+
+    <div class="carousel-item active"> <!--Тут нужно добавить картинки и описание-->
+      <img src="images/картинка.png" class="d-block w-100" style="width: 200px; height: 80lvh;" alt="...">
+      <div class="carousel-caption d-md-block">
+        <h5>Заголовок первого слайда</h5>
+        <p>Описание первого слайда</p>
+      </div>
+    </div>
+
+        <div class="carousel-item"> <!--Тут нужно добавить картинки и описание-->
+      <img src="images/картинка.png" class="d-block w-100" style="width: 200px; height: 80lvh;" alt="...">
+      <div class="carousel-caption d-md-block">
+        <h5>Второй слайд</h5>
+        <p>Описание второго слайда</p>
+      </div>
+    </div>
+
+  <!--Кнопки "Вперёд" и "Назад"-->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!--Конец галереи-->
+
+<!--Отступ до конца экрана-->
+<div style="padding: 1em;"></div>
+
+<!-- Начало "Информация" -->
+<div class="bd-example" style="background-color: white; border-radius: 2%; padding-top: 5%; padding-bottom: 5%">
+  <div class="row">
+    <!-- Начало "Содержание" -->
+    <div class="col-4" style="background-color: gray; padding-top: 5%; padding-bottom: 5%; border-radius: 5%;">
+      <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+        <nav class="nav nav-pills flex-column">
+          <ul class="list-group container d-flex min-vh-100 aligh-items-center">
+            <!-- ЭТО МОЖНО КОПИРВОАТЬ И ВСТАВЛЯТЬ БЕСКОНЕЧНО -->
+            <!-- <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+              <label class="form-check-label stretched-link" for="firstCheckboxStretched">Глава 1</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched">
+              <label class="form-check-label stretched-link" for="secondCheckboxStretched">Глава 2</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched">
+              <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Глава 3</label>
+            </li> -->
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+              <label class="form-check-label stretched-link" for="firstCheckboxStretched">Глава 1</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched">
+              <label class="form-check-label stretched-link" for="secondCheckboxStretched">Глава 2</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched">
+              <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Глава 3</label>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+    </div>
+    <!-- Конец "Содержание" -->
+    <div class="col-8">
+      <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+        <div id="item-1">
+          <h4>Элемент 1</h4>
+          <p>Это некоторый заполнитель для страницы scrollspy. Обратите внимание, что при прокрутке страницы соответствующая навигационная ссылка выделяется. Это повторяется во всем примере компонента. Мы продолжаем добавлять сюда еще несколько примеров, чтобы подчеркнуть прокрутку и выделение.</p>
+          <p>Имейте в виду, что плагин JavaScript пытается выбрать правильный элемент среди всех видимых. Несколько видимых целей scrollspy одновременно могут вызвать некоторые проблемы.</p>
+        </div>
+        <div id="item-2">
+          <h5>Элемент 1-1</h5>
+          <p>Это некоторый заполнитель для страницы scrollspy. Обратите внимание, что при прокрутке страницы соответствующая навигационная ссылка выделяется. Это повторяется во всем примере компонента. Мы продолжаем добавлять сюда еще несколько примеров, чтобы подчеркнуть прокрутку и выделение.</p>
+          <p>Имейте в виду, что плагин JavaScript пытается выбрать правильный элемент среди всех видимых. Несколько видимых целей scrollspy одновременно могут вызвать некоторые проблемы.</p>
+        </div>
+        <div id="item-3">
+          <h5>Элемент 1-2</h5>
+          <p>Это некоторый заполнитель для страницы scrollspy. Обратите внимание, что при прокрутке страницы соответствующая навигационная ссылка выделяется. Это повторяется во всем примере компонента. Мы продолжаем добавлять сюда еще несколько примеров, чтобы подчеркнуть прокрутку и выделение.</p>
+          <p>Имейте в виду, что плагин JavaScript пытается выбрать правильный элемент среди всех видимых. Несколько видимых целей scrollspy одновременно могут вызвать некоторые проблемы.</p>
+        </div>
+        <div id="item-4">
+          <h4>Элемент 2</h4>
+          <p>Это некоторый заполнитель для страницы scrollspy. Обратите внимание, что при прокрутке страницы соответствующая навигационная ссылка выделяется. Это повторяется во всем примере компонента. Мы продолжаем добавлять сюда еще несколько примеров, чтобы подчеркнуть прокрутку и выделение.</p>
+          <p>Имейте в виду, что плагин JavaScript пытается выбрать правильный элемент среди всех видимых. Несколько видимых целей scrollspy одновременно могут вызвать некоторые проблемы.</p>
+        </div>
+        <div id="item-5">
+          <h4>Элемент 3</h4>
+          <p>Это некоторый заполнитель для страницы scrollspy. Обратите внимание, что при прокрутке страницы соответствующая навигационная ссылка выделяется. Это повторяется во всем примере компонента. Мы продолжаем добавлять сюда еще несколько примеров, чтобы подчеркнуть прокрутку и выделение.</p>
+          <p>Имейте в виду, что плагин JavaScript пытается выбрать правильный элемент среди всех видимых. Несколько видимых целей scrollspy одновременно могут вызвать некоторые проблемы.</p>
+        </div>
+        <div id="item-6">
+          <h5>Элемент 3-1</h5>
+          <p>Это некоторый заполнитель для страницы scrollspy. Обратите внимание, что при прокрутке страницы соответствующая навигационная ссылка выделяется. Это повторяется во всем примере компонента. Мы продолжаем добавлять сюда еще несколько примеров, чтобы подчеркнуть прокрутку и выделение.</p>
+          <p>Имейте в виду, что плагин JavaScript пытается выбрать правильный элемент среди всех видимых. Несколько видимых целей scrollspy одновременно могут вызвать некоторые проблемы.</p>
+        </div>
+        <div id="item-7">
+          <h5>Элемент 3-2</h5>
+          <p>Это некоторый заполнитель для страницы scrollspy. Обратите внимание, что при прокрутке страницы соответствующая навигационная ссылка выделяется. Это повторяется во всем примере компонента. Мы продолжаем добавлять сюда еще несколько примеров, чтобы подчеркнуть прокрутку и выделение.</p>
+          <p>Имейте в виду, что плагин JavaScript пытается выбрать правильный элемент среди всех видимых. Несколько видимых целей scrollspy одновременно могут вызвать некоторые проблемы.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Конец "Информация" -->
+
+<!-- Начало "Скачивания" -->
+<table class="table table-dark">
+
+<div>
+<tr>
+
+<th>Файл</th>
+<th>Версия</th>
+<th>Загрузчик модов</th>
+<th>Издание</th>
+<th>Автор</th>
+<th>Размер файла</th>
+<th>Скачать</th>
+
+</tr>
+</div>
+
+<tbody class="table-group-divider">
+
+    <!-- <tr>
+
+        <td>Minecraft_File</td>
+        <td>1.00</td>
+        <td>-/Fabric/Forge/NeoForge/Pack(сборка)</td>
+        <td>Java/Bedrock</td>
+        <td>Author</td>
+        <td>... MB</td>
+        <td><a class="btn btn-primary" href="downloads\Раздел\Раздел...\Файл.расширение_файла" role="button">Ссылка</a></td>
+
+    </tr> -->
+
+
+
+    <tr>
+
+        <td>Minecraft_File</td>
+        <td>1.00</td>
+        <td>-/Fabric/Forge/NeoForge/Pack(сборка)</td>
+        <td>Java/Bedrock</td>
+        <td>Author</td>
+        <td>... MB</td>
+        <td><a class="btn btn-primary" href="downloads\Раздел\Раздел...\Файл.расширение_файла" role="button">Ссылка</a></td>
+
+    </tr>
+
+
+
+    <tr>
+
+        <td>Minecraft_File</td>
+        <td>1.00</td>
+        <td>-/Fabric/Forge/NeoForge/Pack(сборка)</td>
+        <td>Java/Bedrock</td>
+        <td>Author</td>
+        <td>... MB</td>
+        <td><a class="btn btn-primary" href="downloads\Раздел\Раздел...\Файл.расширение_файла" role="button">Ссылка</a></td>
+
+    </tr>
+
+
+
+    <tr>
+
+        <td>Minecraft_File</td>
+        <td>1.00</td>
+        <td>-/Fabric/Forge/NeoForge/Pack(сборка)</td>
+        <td>Java/Bedrock</td>
+        <td>Author</td>
+        <td>... MB</td>
+        <td><a class="btn btn-primary" href="downloads\Раздел\Раздел...\Файл.расширение_файла" role="button">Ссылка</a></td>
+
+    </tr>
+
+</table>
+<!-- Конец "Скачивания" -->
+
+<!--Отступ до конца экрана-->
+<div style="padding: 2em;"></div>
+
+<!--Частые вопросы-->
+<span class="placeholder col-12"></span>
+<h4 class="justify-content-center" style="background-color: blue; color: white;width: 13em; padding-left: 1em;">Частые вопросы</h4>
+<span class=" col-12 bg-info"></span>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        1 вопрос
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <!-- <code>Тут код</code> -->
+        <!-- <strong>Жирный текст</strong> --> Ответ на первый вопрос
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        2 вопрос
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      Ответ на второй вопрос
+      <div class="accordion-body">
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        3 вопрос
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Ответ на третий вопрос
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        4 вопрос
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Ответ на четвёртый вопрос
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        5 вопрос
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Ответ на пятый вопрос
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--End Main-->
+
+</body>
+</html>

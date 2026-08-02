@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Minecraft';
+  src: url('../fonts/minecraft.ttf') format('truetype'),
+  url('../fonts/minecraft.woff') format('woff');
+}
+
+* {
+  font-family: 'Minecraft', Arial, sans-serif;
+  font-size: 85%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+  text-decoration: none;
+}
